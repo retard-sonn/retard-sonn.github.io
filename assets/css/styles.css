@@ -1,7 +1,7 @@
 /* ─────────────────────────────────────────────────────────────────────────
    abraar.me
    A printed field notebook that happens to be a website.
-   Warm paper, madder red, river teal. Every plate drawn in SVG.
+   Warm paper, madder red, river teal. Every diagram drawn in SVG.
    ───────────────────────────────────────────────────────────────────────── */
 
 :root{
@@ -32,11 +32,15 @@
 html{
   -webkit-text-size-adjust:100%;
   scroll-behavior:smooth;
+  overflow-x:clip;
 }
 @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
 
 body{
   margin:0;
+  /* the portrait's registration rings hang a little past the trim, the way
+     a plate overruns the page edge. clip rather than let the page slide. */
+  overflow-x:clip;
   background:var(--paper);
   color:var(--ink);
   font-family:var(--text);
@@ -94,6 +98,13 @@ em,i{font-style:italic}
 .masthead__rule span:nth-child(2),.colophon__rule span:nth-child(2){height:1px; background:var(--ink)}
 .masthead__rule span:nth-child(3),.colophon__rule span:nth-child(3){height:2px; background:var(--ink)}
 
+.masthead__top{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) clamp(280px,33vw,440px);
+  gap:clamp(24px,4vw,60px);
+  align-items:start;
+}
+
 .masthead__kicker{
   font-family:var(--disp);
   font-size:.78rem; letter-spacing:.13em; text-transform:uppercase;
@@ -104,7 +115,7 @@ em,i{font-style:italic}
   font-family:var(--disp);
   font-variation-settings:"SOFT" 22,"WONK" 1,"opsz" 144;
   font-weight:760;
-  font-size:clamp(3.1rem,12.2vw,9.2rem);
+  font-size:clamp(2.9rem,9.4vw,7.4rem);
   line-height:.85;
   letter-spacing:-.028em;
   margin:0 0 .28em;
@@ -125,11 +136,69 @@ em,i{font-style:italic}
 .masthead__line{
   max-width:var(--measure);
   font-size:1.14em; line-height:1.5; color:var(--ink-2);
-  margin-bottom:clamp(30px,5vw,58px);
+  margin-bottom:1.4em;
+}
+
+.masthead__tags{
+  list-style:none; margin:0 0 clamp(26px,4vw,44px); padding:0;
+  display:flex; flex-wrap:wrap; gap:8px 22px;
+}
+.masthead__tags li{
+  display:inline-flex; align-items:center; gap:9px;
+  font-family:var(--disp); font-weight:600; font-size:.82rem;
+  letter-spacing:.03em; color:var(--ink-2);
+}
+.dot{width:9px; height:9px; border-radius:50%; flex:none}
+.dot--red{background:var(--red)} .dot--river{background:var(--river)} .dot--gold{background:var(--gold)}
+
+/* ── Plate I: the portrait, printed two-colour and slightly out of register */
+.port{margin:0; position:relative}
+.port__plate{position:relative; isolation:isolate}
+.port__pic,.port__pic img{display:block; width:100%; height:auto}
+.port__pic img{
+  position:relative; z-index:2;
+  filter:contrast(1.06) brightness(1.02);
+}
+/* the second impression: a flat madder-red silhouette printed a few
+   thousandths off the black plate, so only the fringe shows. it is masked
+   by the same file the portrait uses, so it is free — no extra decode. */
+.port__ghost{display:none}
+@supports ((mask-image:url(#a)) or (-webkit-mask-image:url(#a))){
+  .port__ghost{
+    display:block; position:absolute; inset:0;
+    z-index:1; pointer-events:none;
+    background:var(--red); opacity:.42;
+    transform:translate(12px,-12px);
+    -webkit-mask-image:url(/assets/img/abraar.webp);
+            mask-image:url(/assets/img/abraar.webp);
+    -webkit-mask-size:100% 100%;  mask-size:100% 100%;
+    -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+  }
+}
+.port__rings{
+  position:absolute; left:-9%; right:-9%; bottom:4%; width:118%; height:auto;
+  z-index:0; overflow:visible;
+}
+.pr__ring{fill:none; stroke:var(--line); stroke-width:1.2}
+.pr__ring--dash{stroke-dasharray:2 9; stroke:var(--ink-3); opacity:.55}
+.pr__ring--red{stroke:var(--red); opacity:.28}
+.pr__ticks line{stroke:var(--ink-3); stroke-width:1.4}
+.pr__arc{fill:none; stroke:var(--gold); stroke-width:2.4; stroke-linecap:round; opacity:.7}
+.pr__spin{transform-origin:200px 200px; animation:spin 90s linear infinite}
+@keyframes spin{ to{transform:rotate(360deg)} }
+@media (prefers-reduced-motion:reduce){ .pr__spin{animation:none} }
+
+.port__cap{
+  font-family:var(--disp); font-size:.76rem; letter-spacing:.07em;
+  color:var(--ink-3); margin-top:14px; text-align:right; font-weight:500;
+}
+.port__cap span{
+  text-transform:uppercase; letter-spacing:.15em; font-weight:700;
+  color:var(--red); margin-right:.5em;
 }
 
 /* ── the braid ── */
-.braid{margin:0 0 clamp(34px,6vw,72px)}
+.braid{margin:clamp(26px,4vw,48px) 0 clamp(34px,6vw,72px)}
 .braid svg{display:block; width:100%; height:clamp(120px,17vw,200px)}
 .braid__bed path{fill:none; stroke:var(--line); stroke-width:1.4}
 .braid__flow path{
@@ -195,13 +264,33 @@ em,i{font-style:italic}
   font-weight:420;
 }
 .ch--feature .lede{color:var(--paper) !important}
-
-/* the drop-cap-adjacent flourish: first line of the lede in small caps */
 .lede::first-line{ letter-spacing:.005em }
 
 .cue{
   font-family:var(--disp); font-weight:600; font-style:italic;
   color:var(--gold) !important; font-size:1.06em;
+}
+
+/* ── institutional crests ───────────────────────────────────────────── */
+.crest{
+  display:flex; align-items:center; gap:16px;
+  margin:0 0 clamp(20px,3vw,30px);
+  padding:13px 18px 13px 13px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.42);
+  max-width:var(--measure);
+}
+.crest img{
+  display:block; width:56px; height:auto; flex:none;
+  filter:saturate(.92);
+}
+.crest__inst{
+  font-family:var(--disp); font-weight:660; font-size:.98rem;
+  line-height:1.22; margin:0 0 3px; color:var(--ink);
+}
+.crest__note{
+  font-family:var(--disp); font-size:.72rem; letter-spacing:.05em;
+  color:var(--ink-3); margin:0; line-height:1.35;
 }
 
 
@@ -210,23 +299,39 @@ em,i{font-style:italic}
 .plate{margin:clamp(30px,5vw,52px) 0 0}
 .plate svg{display:block; width:100%; height:auto}
 .plate--trace{max-width:820px}
-.plate--dial,.plate--curve{margin:0}
+.plate--dial,.plate--train{margin:0}
 .plate--dial svg{max-width:300px; margin-inline:auto}
-.plate--curve svg{max-width:420px; margin-inline:auto}
+.plate--train svg{max-width:460px; margin-inline:auto}
+.plate--surface{max-width:880px}
+
+.plate__bar{
+  display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+  margin-top:16px; padding-top:14px; border-top:1px solid var(--line);
+}
+.plate__bar--stack{flex-direction:column; align-items:stretch; gap:14px}
+.plate__btns{display:flex; align-items:center; gap:18px; flex-wrap:wrap}
+.plate__out{
+  margin:0; font-family:var(--disp); font-size:.86rem; color:var(--ink-2);
+  font-variant-numeric:tabular-nums; flex:1 1 240px; line-height:1.4;
+}
 
 /* traceroute */
 .trace__wire path{fill:none; stroke:var(--line); stroke-width:1.5}
-.trace__pulse path{
-  fill:none; stroke:var(--red); stroke-width:2.2; stroke-linecap:round;
-  stroke-dasharray:54 900; stroke-dashoffset:954;
-  animation:flow 4.6s linear infinite;
+.trace__lit path{
+  fill:none; stroke:var(--red); stroke-width:2.4; stroke-linecap:round;
+  stroke-dasharray:0 4000;
 }
-.trace__hops circle{fill:var(--paper); stroke:var(--ink); stroke-width:1.8}
+.trace__hops circle{fill:var(--paper); stroke:var(--ink); stroke-width:1.8;
+  transition:fill .2s ease, stroke .2s ease}
 .trace__hops .is-end circle{fill:var(--red); stroke:var(--red-2)}
+.trace__hops g.lit circle{fill:var(--river); stroke:var(--river)}
 .trace__hops text{
   font-family:var(--disp); font-size:12.5px; font-weight:600;
   fill:var(--ink-2); text-anchor:middle; letter-spacing:.02em;
 }
+.trace__hops .ms{fill:var(--red); font-size:11px; font-weight:700; font-style:italic}
+.trace__pkt{fill:var(--gold); stroke:var(--ink); stroke-width:1.4; opacity:0}
+.trace__pkt.on{opacity:1}
 
 /* the 24-hour dial */
 .dial__face{fill:none; stroke:var(--line); stroke-width:1.4}
@@ -254,23 +359,83 @@ em,i{font-style:italic}
 .sw--1{background:var(--red)} .sw--2{background:var(--river)}
 .sw--3{background:var(--gold)} .sw--4{background:var(--ink)}
 
-/* the loss curve */
-.curve__axes line{stroke:var(--ink); stroke-width:1.5}
-.curve__grid line{stroke:var(--line); stroke-width:1; stroke-dasharray:2 5}
-.curve__line{
-  fill:none; stroke:var(--river); stroke-width:2.6;
-  stroke-linecap:round; stroke-linejoin:round;
+/* ── the classifier that actually trains ────────────────────────────── */
+.tr__axes line{stroke:var(--ink); stroke-width:1.5}
+.tr__grid line{stroke:var(--line); stroke-width:1; stroke-dasharray:2 5}
+.tr__shade polygon{fill:var(--river); opacity:.09}
+.tr__pts circle{stroke:var(--paper); stroke-width:.8}
+.tr__pts .c0{fill:var(--red)}
+.tr__pts .c1{fill:var(--river)}
+.tr__pts .wrong{stroke:var(--ink); stroke-width:1.4}
+.tr__bound{
+  stroke:var(--ink); stroke-width:2.6; stroke-linecap:round;
 }
-.curve__now{fill:var(--red); stroke:var(--paper); stroke-width:2.5}
-.curve__ylab,.curve__xlab{
-  font-family:var(--disp); font-size:12px; font-weight:600;
-  fill:var(--ink-3); text-anchor:middle; letter-spacing:.06em;
+.tr__inset rect{fill:var(--paper); stroke:var(--line); stroke-width:1}
+.tr__inset text{
+  font-family:var(--disp); font-size:9px; font-weight:600; letter-spacing:.1em;
+  text-transform:uppercase; fill:var(--ink-3);
 }
-.curve__ylab{transform:rotate(-90deg); transform-origin:30px 120px}
-.curve__note{
-  font-family:var(--disp); font-size:12.5px; font-weight:700; font-style:italic;
-  fill:var(--red); text-anchor:end;
+#tLoss{fill:none; stroke:var(--gold); stroke-width:1.8; stroke-linejoin:round}
+.tr__ax{
+  font-family:var(--disp); font-size:11.5px; font-weight:600;
+  fill:var(--ink-3); text-anchor:middle; letter-spacing:.07em;
 }
+.tr__ax--y{transform:rotate(-90deg); transform-origin:18px 132px}
+
+.train__stats{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:0;
+}
+.train__stats dt{
+  font-family:var(--disp); font-size:.62rem; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--ink-3); font-weight:650; margin-bottom:2px;
+}
+.train__stats dd{
+  margin:0; font-family:var(--disp); font-weight:700; font-size:1.35rem;
+  line-height:1.1; color:var(--ink); font-variant-numeric:tabular-nums;
+}
+
+/* ── the attack surface ─────────────────────────────────────────────── */
+.sf__box rect{fill:var(--paper); stroke:var(--ink-3); stroke-width:1.4}
+.sf__box .sf__box--core{stroke:var(--ink); stroke-width:2}
+.sf__flow path{
+  fill:none; stroke:var(--line); stroke-width:2; stroke-linecap:round;
+  stroke-dasharray:6 6;
+}
+.sf__lab text{
+  font-family:var(--disp); font-size:14px; font-weight:660;
+  fill:var(--ink); text-anchor:middle;
+}
+.sf__lab .sf__sub{
+  font-size:10px; font-weight:600; font-style:italic;
+  fill:var(--ink-3); letter-spacing:.03em;
+}
+.hs{cursor:pointer}
+.hs circle{
+  fill:var(--paper); stroke:var(--red); stroke-width:2;
+  transition:fill .16s ease, r .16s ease;
+}
+.hs text{
+  font-family:var(--disp); font-size:14px; font-weight:700;
+  fill:var(--red); text-anchor:middle; pointer-events:none;
+  transition:fill .16s ease;
+}
+.hs:hover circle,.hs:focus circle{fill:var(--red)}
+.hs:hover text,.hs:focus text{fill:var(--paper)}
+.hs.on circle{fill:var(--red); stroke:var(--ink)}
+.hs.on text{fill:var(--paper)}
+.hs:focus{outline:none}
+.hs:focus circle{stroke:var(--ink); stroke-width:3}
+
+.sf__note{
+  margin-top:18px; padding:16px 20px;
+  border-left:3px solid var(--red); background:rgba(255,255,255,.45);
+  max-width:46rem; min-height:6.4em;
+}
+.sf__t{
+  font-family:var(--disp); font-weight:700; font-size:1.06rem;
+  margin:0 0 .25em; color:var(--ink);
+}
+.sf__d{margin:0; color:var(--ink-2); font-size:.98em; line-height:1.5}
 
 
 /* ══ THE GROVE (chapter four's game) ══════════════════════════════════ */
@@ -319,6 +484,22 @@ em,i{font-style:italic}
   color:var(--paper); margin:16px 0 0; letter-spacing:.01em;
 }
 
+/* the ledger — one square per submission, in order, forever */
+.ledger{
+  display:flex; flex-wrap:wrap; gap:4px; justify-content:center;
+  margin:16px auto 0; max-width:250px; min-height:13px;
+}
+.ledger i{
+  width:13px; height:13px; display:block; background:#332B22;
+  border:1px solid #453B2F; font-style:normal;
+  animation:pop .28s cubic-bezier(.2,1.4,.4,1);
+}
+.ledger i.ok{background:#4C7A3C; border-color:#5E8C3A}
+.ledger i.part{background:#7A6120; border-color:var(--gold)}
+.ledger i.bad{background:#7A2E27; border-color:#D9776C}
+@keyframes pop{ from{transform:scale(.2); opacity:0} }
+@media (prefers-reduced-motion:reduce){ .ledger i{animation:none} }
+
 .grove__stats{
   display:grid; grid-template-columns:repeat(3,1fr);
   gap:14px; margin:0 0 24px;
@@ -360,6 +541,10 @@ em,i{font-style:italic}
 .btn:hover{background:var(--red-2)}
 .btn:active{transform:translateY(1px)}
 .btn[disabled]{background:#4A4034; color:#9C9184; cursor:progress}
+.btn--sm{font-size:.9rem; padding:11px 20px; gap:10px}
+.btn--ink{background:var(--ink); color:var(--paper)}
+.btn--ink:hover{background:var(--red-2)}
+.btn--ink[disabled]{background:var(--line); color:var(--ink-3)}
 .btn__lens{
   width:15px; height:15px; border-radius:50%; flex:none;
   border:2.5px solid currentColor; position:relative;
@@ -370,6 +555,14 @@ em,i{font-style:italic}
 }
 .btn.is-shooting .btn__lens::after{animation:shutter .42s ease}
 @keyframes shutter{ 50%{opacity:1; transform:scale(.3)} }
+.btn__arrow{
+  width:16px; height:2px; background:currentColor; flex:none; position:relative;
+}
+.btn__arrow::after{
+  content:""; position:absolute; right:-1px; top:-3px;
+  border-left:6px solid currentColor;
+  border-block:4px solid transparent;
+}
 @media (prefers-reduced-motion:reduce){ .btn.is-shooting .btn__lens::after{animation:none} }
 
 .grove__verdict{
@@ -388,6 +581,8 @@ em,i{font-style:italic}
   color:#9C9184; text-decoration:underline; text-underline-offset:.2em;
 }
 .linkbtn:hover{color:var(--paper)}
+.linkbtn--ink{color:var(--ink-3)}
+.linkbtn--ink:hover{color:var(--red-2)}
 
 .grove__legend{
   max-width:46rem; color:#A79C8E; font-size:.97em;
@@ -439,26 +634,35 @@ em,i{font-style:italic}
 .stack__foot .ext{color:var(--gold); font-weight:600}
 
 
-/* ══ CREDENTIALS ══════════════════════════════════════════════════════ */
+/* ══ CERTIFICATIONS ═══════════════════════════════════════════════════ */
 
-.creds{
-  display:grid; gap:clamp(20px,3vw,40px);
-  grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));
-  margin:clamp(28px,4vw,44px) 0 0;
+.certs{
+  list-style:none; margin:0; padding:0;
+  display:grid; gap:10px;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));
 }
-.creds__lab{
-  font-family:var(--disp); font-size:.69rem; font-weight:650;
-  letter-spacing:.15em; text-transform:uppercase; color:var(--ink-3);
-  margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--line);
+.cert{
+  display:flex; align-items:center; gap:14px;
+  padding:14px 16px;
+  border:1px solid var(--line); background:var(--paper);
+  border-left:3px solid var(--line);
 }
-.creds__have{border-left:3px solid var(--river); padding-left:18px}
-.creds__next{border-left:3px solid var(--line); padding-left:18px}
-.creds__item{display:flex; align-items:flex-start; gap:12px; margin:0}
-.creds__item .ic{margin-top:3px}
-.creds__item span{display:grid}
-.creds__item b{font-weight:650; line-height:1.35}
-.creds__item small{color:var(--ink-3); font-size:.8rem; margin-top:3px; letter-spacing:.03em}
-.creds__note{color:var(--ink-3); font-style:italic; font-size:.96em; margin:0}
+.cert--held{border-left-color:var(--river)}
+/* wordmarks (ISC2, CompTIA) are far wider than they are tall; cap them so
+   they cannot elbow the certificate name off its own card. */
+.cert .ic{margin-top:1px; max-width:34px}
+.cert__txt{display:grid; min-width:0; flex:1}
+.cert__txt b{font-weight:650; line-height:1.3; font-size:.98rem}
+.cert__txt small{color:var(--ink-3); font-size:.75rem; letter-spacing:.05em; margin-top:2px}
+.cert__pill{
+  font-family:var(--disp); font-size:.63rem; font-weight:700;
+  letter-spacing:.13em; text-transform:uppercase;
+  padding:5px 9px; border:1px solid var(--line); color:var(--ink-3);
+  white-space:nowrap; flex:none;
+}
+.cert__pill--held{
+  background:var(--river); border-color:var(--river); color:#F2ECE1;
+}
 
 
 /* ══ COLOPHON ═════════════════════════════════════════════════════════ */
@@ -509,25 +713,40 @@ em,i{font-style:italic}
 }
 @media (prefers-reduced-motion:reduce){
   .rv{opacity:1 !important; transform:none !important; transition:none !important}
-  .braid__flow path,.trace__pulse path{animation:none; stroke-dashoffset:0; stroke-dasharray:none; opacity:.5}
+  .braid__flow path{animation:none; stroke-dashoffset:0; stroke-dasharray:none; opacity:.5}
 }
 
 
 /* ══ NARROW ═══════════════════════════════════════════════════════════ */
 
+@media (max-width:980px){
+  .masthead__top{grid-template-columns:1fr; gap:clamp(20px,4vw,34px)}
+  .port{max-width:300px; margin-left:auto}
+  .port__cap{text-align:right}
+}
+
 @media (max-width:860px){
   .ch__inner--split{grid-template-columns:1fr}
   .ch__inner--flip .ch__col{order:0}
   .grove{grid-template-columns:1fr}
-  .plate--dial,.plate--curve{margin-top:8px}
+  .plate--dial,.plate--train{margin-top:8px}
 }
 
 @media (max-width:560px){
   .masthead__name .n3{font-size:.44em; line-height:1.05}
+  .port{max-width:230px}
   .grove__stats{grid-template-columns:1fr 1fr 1fr; gap:8px}
   .grove__stats dd{font-size:1.35rem}
   .btn{width:100%; justify-content:center}
+  .plate__btns .btn{width:auto}
   .trace__hops text{font-size:15px}
+  .sf__lab text{font-size:17px}
+  .sf__lab .sf__sub{font-size:13px}
+  .hs text{font-size:17px}
+  .hs circle{r:19px}          /* a thumb is wider than a mouse pointer */
+  .cert{flex-wrap:wrap; row-gap:10px}
+  .cert__txt{flex:1 1 150px}
+  .cert__pill{margin-left:auto}   /* if it wraps, it wraps to the right edge */
   .colophon__links a{flex:1 1 100%; justify-content:center}
 }
 
@@ -537,7 +756,10 @@ em,i{font-style:italic}
 @media print{
   :root{--paper:#fff}
   body{background:#fff; background-image:none; color:#000; font-size:11pt}
-  .braid,.plate,.grove,.skip,.grove__reset,.grove__legend{display:none}
+  .braid,.plate--trace,.plate--dial,.plate--train,.grove,.skip,
+  .grove__reset,.grove__legend,.port__rings,.port__ghost,.plate__bar{display:none}
+  .plate--surface svg{max-width:520px}
+  .port{max-width:150px; float:right; margin:0 0 12pt 12pt}
   .ch,.ch--alt,.ch--feature,.colophon{
     background:#fff !important; color:#000 !important;
     padding:18pt 0; border:none; break-inside:avoid;
@@ -549,4 +771,5 @@ em,i{font-style:italic}
   .ch__title{font-size:17pt}
   a{color:#000; text-decoration:underline}
   .colophon__links a{border-color:#000}
+  .cert__pill--held{background:#fff; color:#000; border-color:#000}
 }

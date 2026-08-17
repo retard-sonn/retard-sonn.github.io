@@ -4,14 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Abraar Ibrahim Bakhtiyar Ahmed — field notes</title>
-<meta name="description" content="Abraar Ibrahim Bakhtiyar Ahmed (AIBA). Nineteen, from Assam. Reading Data Science &amp; AI at IIT Guwahati, learning to break things carefully, and building WatchMeGuru.">
+<meta name="description" content="Abraar Ibrahim Bakhtiyar Ahmed (AIBA). Nineteen, from Assam. Pursuing Data Science &amp; AI at IIT Guwahati, learning to break things carefully, and building WatchMeGuru.">
 <meta name="author" content="Abraar Ibrahim Bakhtiyar Ahmed">
 <meta name="theme-color" content="#F2ECE1">
 
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Abraar Ibrahim Bakhtiyar Ahmed — field notes">
-<meta property="og:description" content="Nineteen, from Assam. Data Science &amp; AI at IIT Guwahati. Founder of WatchMeGuru.">
+<meta property="og:description" content="Nineteen, from Assam. Pursuing Data Science &amp; AI at IIT Guwahati. Founder of WatchMeGuru.">
 <meta property="og:url" content="https://abraar.me/">
+<meta property="og:image" content="https://abraar.me/assets/img/abraar.png">
 
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://abraar.me/">
@@ -33,20 +34,67 @@
     <span></span><span></span><span></span>
   </div>
 
-  <p class="masthead__kicker">Field notes &middot; Guwahati, Assam &middot; nineteen years in</p>
+  <div class="masthead__top">
 
-  <h1 class="masthead__name">
-    <span class="n1">Abraar</span>
-    <span class="n2">Ibrahim</span>
-    <span class="n3">Bakhtiyar&nbsp;Ahmed</span>
-  </h1>
+    <div class="masthead__words">
+      <p class="masthead__kicker">Field notes &middot; Guwahati, Assam &middot; nineteen years in</p>
 
-  <p class="masthead__alias">called <em>AIBA</em></p>
+      <h1 class="masthead__name">
+        <span class="n1">Abraar</span>
+        <span class="n2">Ibrahim</span>
+        <span class="n3">Bakhtiyar&nbsp;Ahmed</span>
+      </h1>
 
-  <p class="masthead__line">
-    I grew up wanting to know where the wire went. I still do &mdash; I just
-    have better tools now, and someone finally pays me in course credit for it.
-  </p>
+      <p class="masthead__alias">called <em>AIBA</em></p>
+
+      <p class="masthead__line">
+        I grew up wanting to know where the wire went. I still do &mdash; I just
+        have better tools now, and someone finally pays me in course credit for it.
+      </p>
+
+      <ul class="masthead__tags">
+        <li><span class="dot dot--red"></span>Data Science &amp; AI, IIT Guwahati</li>
+        <li><span class="dot dot--river"></span>Pentesting &amp; bug bounty</li>
+        <li><span class="dot dot--gold"></span>Founder, WatchMeGuru</li>
+      </ul>
+    </div>
+
+    <!-- Plate I. printed two-colour: a black impression with a madder-red
+         plate deliberately a few thou out of register, the way a cheap
+         letterpress job comes off the bed. -->
+    <figure class="port" id="port">
+      <div class="port__plate">
+
+        <svg class="port__rings" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
+          <g class="pr__spin">
+            <circle cx="200" cy="200" r="176" class="pr__ring pr__ring--dash"/>
+            <g class="pr__ticks">
+              <line x1="200" y1="14" x2="200" y2="30"/>
+              <line x1="386" y1="200" x2="370" y2="200"/>
+              <line x1="200" y1="386" x2="200" y2="370"/>
+              <line x1="14" y1="200" x2="30" y2="200"/>
+            </g>
+          </g>
+          <circle cx="200" cy="200" r="150" class="pr__ring"/>
+          <circle cx="200" cy="200" r="118" class="pr__ring pr__ring--red"/>
+          <path class="pr__arc" d="M200 44 A156 156 0 0 1 356 200"/>
+        </svg>
+
+        <picture class="port__pic">
+          <source srcset="/assets/img/abraar.webp" type="image/webp">
+          <img src="/assets/img/abraar.png" width="820" height="1026"
+               alt="Abraar Ibrahim Bakhtiyar Ahmed" fetchpriority="high" decoding="async">
+        </picture>
+
+        <div class="port__ghost" aria-hidden="true"></div>
+      </div>
+
+      <figcaption class="port__cap">
+        <span>Plate&nbsp;I</span> the author &middot; nineteen &middot; Guwahati
+      </figcaption>
+    </figure>
+
+  </div>
 
   <!-- the Brahmaputra braids across Assam the way a network diagram braids
        across a whiteboard. same drawing, different draughtsman. -->
@@ -94,34 +142,41 @@
         was on the other side of the cable, and who was allowed to decide.
       </p>
       <p>
-        That question never really closed. A packet leaves this machine and
-        crosses maybe fifteen strangers' hardware before it arrives, and every
-        one of those hops is a place where somebody made a decision about
+        A packet leaves this machine and crosses a dozen strangers' hardware
+        before it arrives. Every one of those hops is somebody's decision about
         trust. Most of my education since has been an argument with those
         decisions.
       </p>
     </div>
 
-    <!-- a traceroute, drawn as the diagram a curious kid would draw -->
-    <figure class="plate plate--trace">
-      <svg viewBox="0 0 760 190" role="img"
+    <!-- a traceroute you can actually run -->
+    <figure class="plate plate--trace" id="trace">
+      <svg viewBox="0 0 760 200" role="img"
            aria-label="A traceroute diagram: a packet leaving a home machine, crossing a local router, an internet service provider, an exchange and a data centre, before arriving at a host.">
         <g class="trace__wire">
-          <path d="M46 132 H186 M186 132 V96 H326 M326 96 V132 H466 M466 132 V78 H606 M606 78 V132 H714"/>
+          <path id="tracePath"
+                d="M46 132 H186 V96 H326 V132 H466 V78 H606 V132 H714"/>
         </g>
-        <g class="trace__pulse">
-          <path d="M46 132 H186 M186 132 V96 H326 M326 96 V132 H466 M466 132 V78 H606 M606 78 V132 H714"/>
-        </g>
+        <g class="trace__lit"><path id="traceLit" d="M46 132 H186 V96 H326 V132 H466 V78 H606 V132 H714"/></g>
         <g class="trace__hops">
-          <g transform="translate(46 132)"><circle r="9"/><text y="30">this desk</text></g>
-          <g transform="translate(186 96)"><circle r="7"/><text y="-18">the router</text></g>
-          <g transform="translate(326 132)"><circle r="7"/><text y="30">the ISP</text></g>
-          <g transform="translate(466 78)"><circle r="7"/><text y="-18">an exchange</text></g>
-          <g transform="translate(606 132)"><circle r="7"/><text y="30">a data centre</text></g>
-          <g transform="translate(714 132)" class="is-end"><circle r="9"/><text y="-20">somebody</text></g>
+          <g transform="translate(46 132)" data-hop="0"><circle r="9"/><text y="30">this desk</text><text class="ms" y="-18"></text></g>
+          <g transform="translate(186 96)"  data-hop="1"><circle r="7"/><text y="-20">the router</text><text class="ms" y="26"></text></g>
+          <g transform="translate(326 132)" data-hop="2"><circle r="7"/><text y="30">the ISP</text><text class="ms" y="-18"></text></g>
+          <g transform="translate(466 78)"  data-hop="3"><circle r="7"/><text y="-20">an exchange</text><text class="ms" y="26"></text></g>
+          <g transform="translate(606 132)" data-hop="4"><circle r="7"/><text y="30">a data centre</text><text class="ms" y="-18"></text></g>
+          <g transform="translate(714 132)" data-hop="5" class="is-end"><circle r="9"/><text y="-22">somebody</text><text class="ms" y="30"></text></g>
         </g>
+        <circle class="trace__pkt" id="tracePkt" r="6" cx="46" cy="132"/>
       </svg>
-      <figcaption>Fifteen strangers, give or take, and every one of them trusted by default.</figcaption>
+      <div class="plate__bar">
+        <button class="btn btn--sm btn--ink" id="traceBtn" type="button">
+          <span class="btn__arrow" aria-hidden="true"></span>Send a packet
+        </button>
+        <p class="plate__out" id="traceOut" role="status" aria-live="polite">
+          Six hops between this desk and whoever you are. Press it.
+        </p>
+      </div>
+      <figcaption>Round-trip times are illustrative. The number of strangers is not.</figcaption>
     </figure>
 
   </div>
@@ -136,10 +191,22 @@
       <p class="ch__num"><span>Chapter</span> Two</p>
       <h2 class="ch__title">Six years, one uniform</h2>
 
+      <aside class="crest">
+        <picture>
+          <source srcset="/assets/img/ssg-crest.webp" type="image/webp">
+          <img src="/assets/img/ssg-crest.png" width="128" height="128" loading="lazy"
+               decoding="async" alt="Crest of Sainik School Goalpara">
+        </picture>
+        <div>
+          <p class="crest__inst">Sainik School Goalpara</p>
+          <p class="crest__note">Residential military school &middot; Assam &middot; classes VI&ndash;XII</p>
+        </div>
+      </aside>
+
       <div class="ch__body">
         <p class="lede">
-          Sainik School Goalpara had my entire adolescence on a timetable, and
-          I have never once been grateful for that in the moment.
+          It had my entire adolescence on a timetable, and I have never once
+          been grateful for that in the moment.
         </p>
         <p>
           Reveille before the light. Inspection. Prep. Lights out whether or not
@@ -147,10 +214,10 @@
           six years the bell stops being outside you.
         </p>
         <p>
-          It is the least glamorous thing on this page and easily the most
-          useful. Nearly everything I have shipped since was built in the hours
-          nobody was watching &mdash; which is, I suppose, why I ended up
-          building software about exactly that.
+          Least glamorous thing on this page, easily the most useful. Nearly
+          everything I have shipped since was built in the hours nobody was
+          watching &mdash; which is, I suppose, why I ended up building software
+          about exactly that.
         </p>
       </div>
     </div>
@@ -194,45 +261,80 @@
       <p class="ch__num"><span>Chapter</span> Three</p>
       <h2 class="ch__title">The curve I'm on</h2>
 
+      <aside class="crest">
+        <picture>
+          <source srcset="/assets/img/iitg-crest.webp" type="image/webp">
+          <img src="/assets/img/iitg-crest.png" width="125" height="128" loading="lazy"
+               decoding="async" alt="Emblem of the Indian Institute of Technology Guwahati">
+        </picture>
+        <div>
+          <p class="crest__inst">Indian Institute of Technology Guwahati</p>
+          <p class="crest__note">BSc (Hons) Data Science &amp; Artificial Intelligence &middot; in progress</p>
+        </div>
+      </aside>
+
       <div class="ch__body">
         <p class="lede">
-          I read Data Science &amp; Artificial Intelligence at the Indian
-          Institute of Technology, Guwahati. BSc, Honours. Still in progress
-          &mdash; I am not going to pretend otherwise.
+          I am pursuing Data Science &amp; Artificial Intelligence at IIT
+          Guwahati. BSc, Honours, still in progress &mdash; I am not going to
+          pretend otherwise.
         </p>
         <p>
-          The honest version of a degree in this subject is that you spend the
-          first stretch learning that almost everything interesting is an
-          optimisation problem wearing a costume, and the rest learning how
-          badly it goes when your data disagrees with your assumptions.
+          The honest version of this subject is that you spend the first stretch
+          learning that almost everything interesting is an optimisation problem
+          wearing a costume, and the rest learning how badly it goes when your
+          data disagrees with your assumptions.
         </p>
         <p>
-          Guwahati is forty minutes from where I grew up. I did not go far.
-          I did go deep.
+          The plate beside this is not a picture of gradient descent. It
+          <em>is</em> gradient descent &mdash; a logistic regression fitting
+          itself in your browser, one epoch at a time. Press it until the line
+          stops caring.
         </p>
       </div>
     </div>
 
-    <figure class="plate plate--curve">
-      <svg viewBox="0 0 380 250" role="img"
-           aria-label="A training loss curve descending steeply and then flattening, annotated: it has not converged yet.">
-        <g class="curve__axes">
-          <line x1="46" y1="24" x2="46" y2="204"/>
-          <line x1="46" y1="204" x2="352" y2="204"/>
+    <!-- a classifier that actually trains. no canned frames. -->
+    <figure class="plate plate--train" id="trainer">
+      <svg viewBox="0 0 400 276" role="img"
+           aria-label="A scatter plot of two classes of points with a decision boundary that moves as a logistic regression is trained, and an inset loss curve.">
+        <g class="tr__grid">
+          <line x1="46" y1="52"  x2="368" y2="52"/>
+          <line x1="46" y1="100" x2="368" y2="100"/>
+          <line x1="46" y1="148" x2="368" y2="148"/>
+          <line x1="46" y1="196" x2="368" y2="196"/>
         </g>
-        <g class="curve__grid">
-          <line x1="46" y1="64" x2="352" y2="64"/>
-          <line x1="46" y1="104" x2="352" y2="104"/>
-          <line x1="46" y1="144" x2="352" y2="144"/>
+        <g class="tr__shade"><polygon id="tShade" points=""/></g>
+        <g id="tScatter" class="tr__pts"></g>
+        <line class="tr__bound" id="tBound" x1="46" y1="244" x2="368" y2="20"/>
+        <g class="tr__axes">
+          <line x1="46" y1="20" x2="46" y2="244"/>
+          <line x1="46" y1="244" x2="368" y2="244"/>
         </g>
-        <path class="curve__line"
-              d="M52 40 C86 148 104 168 140 176 C176 184 190 154 214 158 C238 162 246 184 286 186 C318 187 332 180 348 178"/>
-        <circle class="curve__now" cx="348" cy="178" r="6"/>
-        <text class="curve__ylab" x="30" y="120">loss</text>
-        <text class="curve__xlab" x="199" y="230">epochs (years)</text>
-        <text class="curve__note" x="344" y="158">you are here</text>
+        <g class="tr__inset">
+          <rect x="252" y="26" width="106" height="58"/>
+          <polyline id="tLoss" points=""/>
+          <text x="258" y="40">cross-entropy</text>
+        </g>
+        <text class="tr__ax" x="207" y="268">hours slept</text>
+        <text class="tr__ax tr__ax--y" x="18" y="132">problems solved</text>
       </svg>
-      <figcaption>Descending. Not converged. That is the correct place to be at nineteen.</figcaption>
+
+      <div class="plate__bar plate__bar--stack">
+        <dl class="train__stats">
+          <div><dt>Epoch</dt><dd id="tEpoch">0</dd></div>
+          <div><dt>Loss</dt><dd id="tLossVal">0.693</dd></div>
+          <div><dt>Accuracy</dt><dd id="tAcc">&mdash;</dd></div>
+        </dl>
+        <div class="plate__btns">
+          <button class="btn btn--sm btn--ink" id="tRun" type="button">Train 25 epochs</button>
+          <button class="linkbtn linkbtn--ink" id="tReset" type="button">Reinitialise weights</button>
+        </div>
+      </div>
+      <figcaption>
+        Two hundred synthetic students. Red failed the paper, teal passed.
+        The line is <em>w&#8901;x + b = 0</em>, and it moves because the maths moves it.
+      </figcaption>
     </figure>
 
   </div>
@@ -244,25 +346,23 @@
   <div class="ch__inner">
 
     <p class="ch__num"><span>Chapter</span> Four</p>
-    <h2 class="ch__title">A tree that only grows if you told the truth</h2>
+    <h2 class="ch__title">Proof, or it didn't happen</h2>
 
     <div class="ch__body ch__body--wide">
       <p class="lede">
-        <strong>WatchMeGuru</strong> is mine. It is a student accountability
-        platform for the people I grew up beside &mdash; JEE, NEET, UPSC, NDA,
-        CBSE aspirants, all of them promising themselves things at eleven at
-        night. I built its AI backend.
+        <strong>WatchMeGuru</strong> is mine. A student accountability platform
+        for the people I grew up beside &mdash; JEE, NEET, UPSC, NDA and CBSE
+        aspirants, all of them promising themselves things at eleven at night.
+        I built its AI backend.
       </p>
       <p>
-        Every accountability app I had ever used ran on the honour system,
-        which is a polite way of saying it ran on nothing. So this one does not
-        take your word for it. You claim the work, then you photograph the
-        work. A vision model reads the photograph and returns one of three
-        verdicts. Your streak moves only on <em>verified</em>.
+        Every accountability app I had used ran on the honour system, which is a
+        polite way of saying it ran on nothing. This one does not take your word
+        for it. You claim the work, then you photograph the work. A vision model
+        reads the photograph and returns one of three verdicts. Your streak
+        moves only on <em>verified</em>.
       </p>
-      <p class="cue">
-        Easier to show you. Go on &mdash; try to grow it.
-      </p>
+      <p class="cue">Easier to show you. Go on &mdash; try to grow it.</p>
     </div>
 
     <!-- ── the game ───────────────────────────────────────────────────── -->
@@ -337,6 +437,9 @@
         </svg>
 
         <p class="grove__stagename"><span id="stageName">Seed</span></p>
+
+        <!-- the ledger: one square per submission, in order, forever -->
+        <div class="ledger" id="ledger" aria-hidden="true"></div>
       </div>
 
       <div class="grove__panel">
@@ -350,10 +453,10 @@
         <p class="grove__claim">
           <label for="claimSel">Today I claim I did</label>
           <select id="claimSel">
-            <option value="Three hours of organic chemistry">three hours of organic chemistry</option>
-            <option value="A full JEE mock paper">a full JEE mock paper</option>
-            <option value="Forty problems of rotational motion">forty problems of rotational motion</option>
-            <option value="Two chapters of modern history">two chapters of modern history</option>
+            <option value="three hours of organic chemistry">three hours of organic chemistry</option>
+            <option value="a full JEE mock paper">a full JEE mock paper</option>
+            <option value="forty problems of rotational motion">forty problems of rotational motion</option>
+            <option value="two chapters of modern history">two chapters of modern history</option>
           </select>
         </p>
 
@@ -441,40 +544,113 @@
 
     <div class="ch__body ch__body--wide">
       <p class="lede">
-        My niche is penetration testing and bug bounty. I want to be precise
-        about where I actually am with it, because this is a field where
-        people inflate and get found out in one interview.
+        My niche is penetration testing and bug bounty. Security is not really
+        about tools. It is about noticing the assumption everybody stopped
+        checking.
       </p>
       <p>
-        I hold the <strong>Google Cybersecurity Professional Certificate</strong>.
-        That is the only certificate I hold, and I am not going to list a
-        wishlist next to it and hope you do not check. What I have besides that
-        is a lab, a lot of hours, and the specific stubbornness of somebody who
-        grew up asking where the wire went.
-      </p>
-      <p>
-        The reason it suits me is the same reason the networking question never
-        closed. Security is not really about tools. It is about noticing the
-        assumption everybody stopped checking.
+        Here is a small application, drawn the way I look at one. Six places
+        where somebody trusted something they should not have. Pick a number.
       </p>
     </div>
 
-    <div class="creds">
-      <div class="creds__have">
-        <p class="creds__lab">Held</p>
-        <p class="creds__item">
-          <i data-ic="google"></i>
-          <span><b>Google Cybersecurity Professional Certificate</b><small>Coursera &middot; completed</small></span>
-        </p>
+    <!-- ── the attack surface ─────────────────────────────────────────── -->
+    <figure class="plate plate--surface" id="surface">
+      <svg viewBox="0 0 740 300" role="img"
+           aria-label="An application architecture diagram with six numbered hotspots marking classes of vulnerability. Select a hotspot to read what goes wrong there.">
+
+        <g class="sf__flow">
+          <path d="M148 150 H286"/>
+          <path d="M424 150 H562"/>
+          <path d="M356 118 V78"/>
+          <path d="M356 182 V222"/>
+        </g>
+
+        <g class="sf__box">
+          <rect x="26"  y="118" width="122" height="64"/>
+          <rect x="288" y="118" width="136" height="64" class="sf__box--core"/>
+          <rect x="562" y="118" width="122" height="64"/>
+          <rect x="290" y="26"  width="132" height="52"/>
+          <rect x="290" y="222" width="132" height="52"/>
+        </g>
+
+        <g class="sf__lab">
+          <text x="87"  y="146">the browser</text><text x="87"  y="166" class="sf__sub">someone else's</text>
+          <text x="356" y="146">the API</text><text x="356" y="166" class="sf__sub">yours, allegedly</text>
+          <text x="623" y="146">the database</text><text x="623" y="166" class="sf__sub">everything</text>
+          <text x="356" y="48">file upload</text><text x="356" y="66" class="sf__sub">"just avatars"</text>
+          <text x="356" y="244">outbound fetch</text><text x="356" y="262" class="sf__sub">a URL you gave it</text>
+        </g>
+
+        <g class="sf__hot" id="sfHot">
+          <g class="hs" tabindex="0" role="button" aria-describedby="sfNote" data-i="1" aria-label="Hotspot 1, Reflected XSS"
+             data-t="Reflected XSS"
+             data-d="The page prints a query parameter back into the document. Somewhere between the router and the render, a string stopped being data and became code.">
+            <circle cx="140" cy="112" r="15"/><text x="140" y="117">1</text></g>
+
+          <g class="hs" tabindex="0" role="button" aria-describedby="sfNote" data-i="2" aria-label="Hotspot 2, Broken authentication"
+             data-t="Broken authentication"
+             data-d="The token is checked for a valid signature and never for who it belongs to, or the algorithm field is taken as a suggestion. Logged in is not the same as allowed.">
+            <circle cx="217" cy="150" r="15"/><text x="217" y="155">2</text></g>
+
+          <g class="hs" tabindex="0" role="button" aria-describedby="sfNote" data-i="3" aria-label="Hotspot 3, Unrestricted upload"
+             data-t="Unrestricted upload"
+             data-d="The extension is validated, the content type is trusted, and the file lands somewhere the server is willing to execute. Avatars are how you get a shell.">
+            <circle cx="422" cy="40" r="15"/><text x="422" y="45">3</text></g>
+
+          <g class="hs" tabindex="0" role="button" aria-describedby="sfNote" data-i="4" aria-label="Hotspot 4, Insecure direct object reference"
+             data-t="Insecure direct object reference"
+             data-d="Order 1041 belongs to me. Order 1042 does not, and the server never asked. The cheapest, dullest, most common finding in the trade.">
+            <circle cx="300" cy="112" r="15"/><text x="300" y="117">4</text></g>
+
+          <g class="hs" tabindex="0" role="button" aria-describedby="sfNote" data-i="5" aria-label="Hotspot 5, Server-side request forgery"
+             data-t="Server-side request forgery"
+             data-d="You hand it a URL and a machine inside the network fetches it for you. Point it at the metadata endpoint and the cloud hands over its own credentials.">
+            <circle cx="422" cy="260" r="15"/><text x="422" y="265">5</text></g>
+
+          <g class="hs" tabindex="0" role="button" aria-describedby="sfNote" data-i="6" aria-label="Hotspot 6, SQL injection"
+             data-t="SQL injection"
+             data-d="String concatenation is still shipping. A quote mark in a search box, and the query stops answering the question it was asked.">
+            <circle cx="493" cy="150" r="15"/><text x="493" y="155">6</text></g>
+        </g>
+      </svg>
+
+      <div class="sf__note" id="sfNote" role="status" aria-live="polite">
+        <p class="sf__t" id="sfT">Six numbered assumptions</p>
+        <p class="sf__d" id="sfD">Select one. Every finding I have ever written up is a
+          sentence about somebody trusting input they did not have to.</p>
       </div>
-      <div class="creds__next">
-        <p class="creds__lab">Studying toward &mdash; <em>not</em> held</p>
-        <p class="creds__note">
-          Deliberately unlisted. When one of them is real it will move to the
-          left-hand column and not a day before.
-        </p>
-      </div>
-    </div>
+      <figcaption>Not a real client. The shapes are always these shapes.</figcaption>
+    </figure>
+
+    <h3 class="stack__h">Certifications</h3>
+    <ul class="certs">
+      <li class="cert cert--held">
+        <i data-ic="google"></i>
+        <span class="cert__txt"><b>Google Cybersecurity Professional Certificate</b><small>Coursera</small></span>
+        <span class="cert__pill cert__pill--held">Held</span>
+      </li>
+      <li class="cert">
+        <i data-ic="isc2"></i>
+        <span class="cert__txt"><b>ISC2 Certified in Cybersecurity (CC)</b><small>entry level</small></span>
+        <span class="cert__pill">In progress</span>
+      </li>
+      <li class="cert">
+        <i data-ic="comptia"></i>
+        <span class="cert__txt"><b>CompTIA Security+ &mdash; SY0-701</b><small>entry level</small></span>
+        <span class="cert__pill">In progress</span>
+      </li>
+      <li class="cert">
+        <i data-ic="cisco"></i>
+        <span class="cert__txt"><b>Cisco Introduction to Cybersecurity</b><small>entry level</small></span>
+        <span class="cert__pill">In progress</span>
+      </li>
+      <li class="cert">
+        <i data-ic="tryhackme"></i>
+        <span class="cert__txt"><b>TryHackMe Jr Penetration Tester</b><small>learning path</small></span>
+        <span class="cert__pill">In progress</span>
+      </li>
+    </ul>
 
     <h3 class="stack__h">What is open on the other monitor</h3>
     <div class="stack__grid stack__grid--two">
@@ -583,14 +759,14 @@
 
     <h2 class="colophon__h">Say something</h2>
     <p class="colophon__sub">
-      I answer email from strangers. It is one of the few good habits the
-      timetable gave me.
+      WhatsApp is the fastest way to reach me, and I answer messages from
+      strangers. It is one of the few good habits the timetable gave me.
     </p>
 
     <ul class="colophon__links">
       <li>
-        <a href="mailto:abraar@watchmeguru.in">
-          <i data-ic="mail"></i><span>abraar@watchmeguru.in</span>
+        <a href="https://wa.me/916901065636" rel="noopener">
+          <i data-ic="whatsapp"></i><span>+91 69010 65636</span>
         </a>
       </li>
       <li>
@@ -620,10 +796,11 @@
     <div class="colophon__rule" aria-hidden="true"><span></span><span></span><span></span></div>
 
     <p class="colophon__fine">
-      Set in Fraunces and Newsreader. Every diagram on this page is drawn in
-      SVG by hand &mdash; there is not a single image file on this site.
-      Built without a framework, which is either principled or stubborn
-      depending on who is asking.
+      Set in Fraunces and Newsreader. Every diagram here is drawn in SVG by
+      hand; the only raster files on the site are one portrait and two
+      institutional crests. The classifier in chapter three and the grove in
+      chapter four are running, not recorded. Built without a framework, which
+      is either principled or stubborn depending on who is asking.
     </p>
     <p class="colophon__fine colophon__fine--last">
       Abraar Ibrahim Bakhtiyar Ahmed &middot; Assam, India
