@@ -151,11 +151,34 @@
   /* ── 3. the traceroute ───────────────────────────────────────────────
      The polyline is walked by hand rather than with getPointAtLength, so
      the hop indices and the animation share one source of truth. Round
-     trip times are illustrative and the caption says so. */
-  var TRACE_PTS = [
-    [46, 132], [186, 132], [186, 96], [326, 96], [326, 132],
-    [466, 132], [466, 78], [606, 78], [606, 132], [714, 132]
-  ];
+     trip times are illustrative and the caption says so.
+
+     The wire runs left to right on a desk and top to bottom in a hand.
+     Both layouts are the same ten points with the same six corners, so
+     the hops, the animation and the labels never disagree. */
+  var TRACE_H = {
+    box: '0 0 760 200',
+    pts: [
+      [46, 132], [186, 132], [186, 96], [326, 96], [326, 132],
+      [466, 132], [466, 78], [606, 78], [606, 132], [714, 132]
+    ],
+    /* offsets from each node. The four middle hops sit on corners, so their
+       times step aside rather than sit on the wire they are timing. */
+    lab: [[0, 30], [0, -20], [0, 30], [0, -20], [0, 30], [0, -22]],
+    ms:  [[0, -18], [-38, 6], [-38, -6], [-38, 6], [-38, -6], [0, 30]]
+  };
+  /* Vertically the wire is a straight spine: any horizontal jog would cross
+     the row it belongs to and strike its own label through. The ten points
+     stay collinear so the corners, and therefore the hop indices, hold. */
+  var TRACE_V = {
+    box: '0 0 340 560',
+    pts: [
+      [58, 40], [58, 84], [58, 128], [58, 184], [58, 240],
+      [58, 296], [58, 352], [58, 404], [58, 456], [58, 524]
+    ],
+    lab: null,        // computed: name to the right of its own node
+    ms: null          // computed: time flush to the right margin, like a shell
+  };
   var TRACE_HOP_AT = [0, 2, 4, 6, 8, 9];       // point index of each labelled hop
   var TRACE_MS = [0.4, 2.1, 9.4, 23.8, 41.2, 57.6];
 
@@ -164,16 +187,54 @@
     var btn = $('traceBtn');
     var pkt = $('tracePkt');
     var lit = $('traceLit');
+    var path = $('tracePath');
     var out = $('traceOut');
-    if (!wrap || !btn || !pkt || !lit) { return; }
+    if (!wrap || !btn || !pkt || !lit || !path) { return; }
 
+    var svg = wrap.querySelector('svg');
     var hops = wrap.querySelectorAll('.trace__hops > g');
-    var seg = [], cum = [0], total = 0, i;
-    for (i = 1; i < TRACE_PTS.length; i++) {
-      var dx = TRACE_PTS[i][0] - TRACE_PTS[i - 1][0];
-      var dy = TRACE_PTS[i][1] - TRACE_PTS[i - 1][1];
-      var d = Math.sqrt(dx * dx + dy * dy);
-      seg.push(d); total += d; cum.push(total);
+    var narrow = window.matchMedia('(max-width: 640px)');
+    var PTS = TRACE_H.pts, cum = [0], total = 0;
+
+    function layout() {
+      var vert = narrow.matches;
+      var L = vert ? TRACE_V : TRACE_H;
+      var d = 'M' + L.pts[0][0] + ' ' + L.pts[0][1];
+      var i, k;
+
+      for (i = 1; i < L.pts.length; i++) { d += 'L' + L.pts[i][0] + ' ' + L.pts[i][1]; }
+      svg.setAttribute('viewBox', L.box);
+      path.setAttribute('d', d);
+      lit.setAttribute('d', d);
+      wrap.classList.toggle('is-vert', vert);
+
+      for (i = 0; i < hops.length; i++) {
+        var p = L.pts[TRACE_HOP_AT[i]];
+        var name = hops[i].querySelector('text:not(.ms)');
+        var time = hops[i].querySelector('.ms');
+        hops[i].setAttribute('transform', 'translate(' + p[0] + ' ' + p[1] + ')');
+        if (name) {
+          name.setAttribute('x', vert ? 22 : L.lab[i][0]);
+          name.setAttribute('y', vert ? 5 : L.lab[i][1]);
+        }
+        if (time) {
+          time.setAttribute('x', vert ? 334 - p[0] : L.ms[i][0]);
+          time.setAttribute('y', vert ? 5 : L.ms[i][1]);
+        }
+      }
+
+      PTS = L.pts;
+      cum = [0]; total = 0;
+      for (i = 1; i < PTS.length; i++) {
+        var dx = PTS[i][0] - PTS[i - 1][0];
+        var dy = PTS[i][1] - PTS[i - 1][1];
+        total += Math.sqrt(dx * dx + dy * dy);
+        cum.push(total);
+      }
+      pkt.setAttribute('cx', PTS[0][0]);
+      pkt.setAttribute('cy', PTS[0][1]);
+      for (k = 0; k < hops.length; k++) { hops[k].classList.remove('lit'); }
+      lit.style.strokeDasharray = '0 4000';   /* inline: the stylesheet sets a resting value */
     }
 
     function at(dist) {
@@ -182,12 +243,12 @@
           var t = (dist - cum[k - 1]) / (cum[k] - cum[k - 1] || 1);
           t = Math.max(0, Math.min(1, t));
           return [
-            TRACE_PTS[k - 1][0] + (TRACE_PTS[k][0] - TRACE_PTS[k - 1][0]) * t,
-            TRACE_PTS[k - 1][1] + (TRACE_PTS[k][1] - TRACE_PTS[k - 1][1]) * t
+            PTS[k - 1][0] + (PTS[k][0] - PTS[k - 1][0]) * t,
+            PTS[k - 1][1] + (PTS[k][1] - PTS[k - 1][1]) * t
           ];
         }
       }
-      return TRACE_PTS[TRACE_PTS.length - 1];
+      return PTS[PTS.length - 1];
     }
 
     function clear() {
@@ -196,7 +257,7 @@
         var t = hops[k].querySelector('.ms');
         if (t) { t.textContent = ''; }
       }
-      lit.setAttribute('stroke-dasharray', '0 4000');
+      lit.style.strokeDasharray = '0 4000';   /* inline: the stylesheet sets a resting value */
       pkt.classList.remove('on');
     }
 
@@ -224,7 +285,7 @@
         var p = at(dist);
         pkt.setAttribute('cx', p[0]);
         pkt.setAttribute('cy', p[1]);
-        lit.setAttribute('stroke-dasharray', dist.toFixed(1) + ' 4000');
+        lit.style.strokeDasharray = dist.toFixed(1) + ' 4000';
 
         while (next < TRACE_HOP_AT.length && dist >= cum[TRACE_HOP_AT[next]] - 0.5) {
           hops[next].classList.add('lit');
@@ -245,6 +306,11 @@
     }
 
     btn.addEventListener('click', send);
+
+    layout();
+    function relayout() { if (!running) { layout(); clear(); } }
+    if (narrow.addEventListener) { narrow.addEventListener('change', relayout); }
+    else if (narrow.addListener) { narrow.addListener(relayout); }
   }
 
 

@@ -314,7 +314,7 @@
         <g class="tr__inset">
           <rect x="252" y="26" width="106" height="58"/>
           <polyline id="tLoss" points=""/>
-          <text x="258" y="40">cross-entropy</text>
+          <text x="258" y="40">loss</text>
         </g>
         <text class="tr__ax" x="207" y="268">hours slept</text>
         <text class="tr__ax tr__ax--y" x="18" y="132">problems solved</text>
@@ -334,6 +334,7 @@
       <figcaption>
         Two hundred synthetic students. Red failed the paper, teal passed.
         The line is <em>w&#8901;x + b = 0</em>, and it moves because the maths moves it.
+        The inset is the cross-entropy falling.
       </figcaption>
     </figure>
 
@@ -556,7 +557,12 @@
 
     <!-- ── the attack surface ─────────────────────────────────────────── -->
     <figure class="plate plate--surface" id="surface">
-      <svg viewBox="0 0 740 300" role="img"
+
+      <!-- Two drawings of one application. The wide plate is the diagram you
+           sketch on a whiteboard; the tall one is the same six assumptions
+           stacked for a thumb. Only ever one of them is in the document's
+           accessibility tree, because the other is display:none. -->
+      <svg class="sf--wide" viewBox="0 0 740 300" role="img"
            aria-label="An application architecture diagram with six numbered hotspots marking classes of vulnerability. Select a hotspot to read what goes wrong there.">
 
         <g class="sf__flow">
@@ -612,6 +618,68 @@
              data-t="SQL injection"
              data-d="String concatenation is still shipping. A quote mark in a search box, and the query stops answering the question it was asked.">
             <circle cx="493" cy="150" r="15"/><text x="493" y="155">6</text></g>
+        </g>
+      </svg>
+
+      <svg class="sf--tall" viewBox="0 0 340 470" role="img"
+           aria-label="The same application drawn as a stack: the browser, the API, its file upload and outbound fetch, and the database. Six numbered hotspots mark classes of vulnerability. Select one to read what goes wrong there.">
+
+        <g class="sf__flow">
+          <path d="M30 48 V426"/>
+          <path d="M30 48 H54"/>
+          <path d="M30 155 H54"/>
+          <path d="M30 426 H54"/>
+          <path d="M66 185 V320"/>
+          <path d="M66 242 H78"/>
+          <path d="M66 320 H78"/>
+        </g>
+
+        <g class="sf__box">
+          <rect x="54" y="22"  width="260" height="52"/>
+          <rect x="54" y="126" width="260" height="58" class="sf__box--core"/>
+          <rect x="78" y="216" width="236" height="52"/>
+          <rect x="78" y="294" width="236" height="52"/>
+          <rect x="54" y="400" width="260" height="52"/>
+        </g>
+
+        <g class="sf__lab">
+          <text x="70" y="46">the browser</text><text x="70" y="64" class="sf__sub">someone else's</text>
+          <text x="70" y="151">the API</text><text x="70" y="170" class="sf__sub">yours, allegedly</text>
+          <text x="94" y="240">file upload</text><text x="94" y="258" class="sf__sub">"just avatars"</text>
+          <text x="94" y="318">outbound fetch</text><text x="94" y="336" class="sf__sub">a URL you gave it</text>
+          <text x="70" y="424">the database</text><text x="70" y="442" class="sf__sub">everything</text>
+        </g>
+
+        <g class="sf__hot">
+          <g class="hs" tabindex="0" role="button" aria-describedby="sfNote" data-i="1" aria-label="Hotspot 1, Reflected XSS"
+             data-t="Reflected XSS"
+             data-d="The page prints a query parameter back into the document. Somewhere between the router and the render, a string stopped being data and became code.">
+            <circle cx="314" cy="22" r="18"/><text x="314" y="29">1</text></g>
+
+          <g class="hs" tabindex="0" role="button" aria-describedby="sfNote" data-i="2" aria-label="Hotspot 2, Broken authentication"
+             data-t="Broken authentication"
+             data-d="The token is checked for a valid signature and never for who it belongs to, or the algorithm field is taken as a suggestion. Logged in is not the same as allowed.">
+            <circle cx="30" cy="100" r="18"/><text x="30" y="107">2</text></g>
+
+          <g class="hs" tabindex="0" role="button" aria-describedby="sfNote" data-i="3" aria-label="Hotspot 3, Unrestricted upload"
+             data-t="Unrestricted upload"
+             data-d="The extension is validated, the content type is trusted, and the file lands somewhere the server is willing to execute. Avatars are how you get a shell.">
+            <circle cx="314" cy="216" r="18"/><text x="314" y="223">3</text></g>
+
+          <g class="hs" tabindex="0" role="button" aria-describedby="sfNote" data-i="4" aria-label="Hotspot 4, Insecure direct object reference"
+             data-t="Insecure direct object reference"
+             data-d="Order 1041 belongs to me. Order 1042 does not, and the server never asked. The cheapest, dullest, most common finding in the trade.">
+            <circle cx="314" cy="126" r="18"/><text x="314" y="133">4</text></g>
+
+          <g class="hs" tabindex="0" role="button" aria-describedby="sfNote" data-i="5" aria-label="Hotspot 5, Server-side request forgery"
+             data-t="Server-side request forgery"
+             data-d="You hand it a URL and a machine inside the network fetches it for you. Point it at the metadata endpoint and the cloud hands over its own credentials.">
+            <circle cx="314" cy="294" r="18"/><text x="314" y="301">5</text></g>
+
+          <g class="hs" tabindex="0" role="button" aria-describedby="sfNote" data-i="6" aria-label="Hotspot 6, SQL injection"
+             data-t="SQL injection"
+             data-d="String concatenation is still shipping. A quote mark in a search box, and the query stops answering the question it was asked.">
+            <circle cx="30" cy="360" r="18"/><text x="30" y="367">6</text></g>
         </g>
       </svg>
 

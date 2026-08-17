@@ -210,6 +210,14 @@ em,i{font-style:italic}
 .braid__flow path:nth-child(3){animation-duration:11s; animation-delay:-5s; stroke:var(--gold)}
 @keyframes flow{ to{stroke-dashoffset:0} }
 .braid__nodes circle{fill:var(--paper); stroke:var(--ink); stroke-width:1.6}
+/* squeezing 1200 units into 375 thins every stroke to a hair, so the river
+   is drawn heavier and taller on a phone or it disappears. */
+@media (max-width:640px){
+  .braid svg{height:150px}
+  .braid__bed path{stroke-width:2.4}
+  .braid__flow path{stroke-width:4}
+  .braid__nodes circle{stroke-width:2.6; r:7}
+}
 
 .braid figcaption,.plate figcaption{
   font-family:var(--disp);
@@ -333,6 +341,15 @@ em,i{font-style:italic}
 .trace__pkt{fill:var(--gold); stroke:var(--ink); stroke-width:1.4; opacity:0}
 .trace__pkt.on{opacity:1}
 
+/* on a phone the wire runs down the page and the hops read as a listing,
+   which is what a traceroute actually looks like in a terminal anyway. */
+.plate--trace.is-vert .trace__hops text{font-size:17.5px; text-anchor:start}
+.plate--trace.is-vert .trace__hops .ms{font-size:15px; text-anchor:end}
+.plate--trace.is-vert .trace__wire path,
+.plate--trace.is-vert .trace__lit path{stroke-width:3}
+.plate--trace.is-vert .trace__hops circle{r:11px; stroke-width:2.6}
+.plate--trace.is-vert .trace__pkt{r:8px}
+
 /* the 24-hour dial */
 .dial__face{fill:none; stroke:var(--line); stroke-width:1.4}
 .dial__ticks line{stroke:var(--ink-3); stroke-width:1.4}
@@ -381,6 +398,13 @@ em,i{font-style:italic}
   fill:var(--ink-3); text-anchor:middle; letter-spacing:.07em;
 }
 .tr__ax--y{transform:rotate(-90deg); transform-origin:18px 132px}
+/* the plate scales down to about 0.84 on a phone, so the type has to
+   scale up to meet it in the middle. */
+@media (max-width:640px){
+  .tr__ax{font-size:14.5px}
+  .tr__inset text{font-size:13.5px}
+  .tr__pts circle{stroke-width:1}
+}
 
 .train__stats{
   display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:0;
@@ -418,6 +442,18 @@ em,i{font-style:italic}
   font-family:var(--disp); font-size:14px; font-weight:700;
   fill:var(--red); text-anchor:middle; pointer-events:none;
   transition:fill .16s ease;
+}
+/* one plate or the other, never both. `.plate svg` also sets display, so
+   these carry the extra class weight to beat it. */
+.plate svg.sf--tall{display:none}
+@media (max-width:640px){
+  .plate svg.sf--wide{display:none}
+  .plate svg.sf--tall{display:block}
+  .sf--tall .sf__lab text{text-anchor:start; font-size:19px}
+  .sf--tall .sf__lab .sf__sub{font-size:14px}
+  .sf--tall .hs text{font-size:21px}
+  .sf--tall .hs circle{r:20px}
+  .sf--tall .sf__flow path{stroke-width:2.4}
 }
 .hs:hover circle,.hs:focus circle{fill:var(--red)}
 .hs:hover text,.hs:focus text{fill:var(--paper)}
@@ -583,6 +619,12 @@ em,i{font-style:italic}
 .linkbtn:hover{color:var(--paper)}
 .linkbtn--ink{color:var(--ink-3)}
 .linkbtn--ink:hover{color:var(--red-2)}
+/* a finger is not a cursor: give the small text controls a real hit area
+   without moving the ink they sit on. */
+@media (max-width:640px){
+  .linkbtn{padding:11px 0; margin:-11px 0}
+  .stack__foot .ext{display:inline-block; padding:9px 0}
+}
 
 .grove__legend{
   max-width:46rem; color:#A79C8E; font-size:.97em;
@@ -739,15 +781,19 @@ em,i{font-style:italic}
   .grove__stats dd{font-size:1.35rem}
   .btn{width:100%; justify-content:center}
   .plate__btns .btn{width:auto}
-  .trace__hops text{font-size:15px}
-  .sf__lab text{font-size:17px}
-  .sf__lab .sf__sub{font-size:13px}
-  .hs text{font-size:17px}
-  .hs circle{r:19px}          /* a thumb is wider than a mouse pointer */
   .cert{flex-wrap:wrap; row-gap:10px}
   .cert__txt{flex:1 1 150px}
   .cert__pill{margin-left:auto}   /* if it wraps, it wraps to the right edge */
-  .colophon__links a{flex:1 1 100%; justify-content:center}
+  /* the flex items are the list items, not the anchors inside them */
+  .colophon__links li{flex:1 1 100%}
+  .colophon__links a{justify-content:center}
+
+  /* the small tracked capitals are a device, not a place to save space.
+     Under about 11px on a phone they stop being read and start being
+     texture, so every one of them goes up a point. */
+  .stack__lab,.crest__note,.cert__txt small{font-size:.72rem}
+  .cert__pill{font-size:.7rem}
+  .train__stats dt,.grove__stats dt,.colophon dt{font-size:.7rem}
 }
 
 
@@ -758,7 +804,9 @@ em,i{font-style:italic}
   body{background:#fff; background-image:none; color:#000; font-size:11pt}
   .braid,.plate--trace,.plate--dial,.plate--train,.grove,.skip,
   .grove__reset,.grove__legend,.port__rings,.port__ghost,.plate__bar{display:none}
-  .plate--surface svg{max-width:520px}
+  /* paper is wide: print the whiteboard drawing, never the phone one */
+  .plate svg.sf--tall{display:none}
+  .plate svg.sf--wide{display:block; max-width:520px}
   .port{max-width:150px; float:right; margin:0 0 12pt 12pt}
   .ch,.ch--alt,.ch--feature,.colophon{
     background:#fff !important; color:#000 !important;
