@@ -1,419 +1,638 @@
-<!doctype html>
-<html lang="en" data-mode="rich">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Abraar Ibrahim Bakhtiyar Ahmed — AIBA</title>
-<meta name="description" content="Abraar Ibrahim Bakhtiyar Ahmed (AIBA). Data Science &amp; AI at IIT Guwahati. Founder of WatchMeGuru. Penetration testing and bug bounty.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abraar Ibrahim Bakhtiyar Ahmed — field notes</title>
+<meta name="description" content="Abraar Ibrahim Bakhtiyar Ahmed (AIBA). Nineteen, from Assam. Reading Data Science &amp; AI at IIT Guwahati, learning to break things carefully, and building WatchMeGuru.">
 <meta name="author" content="Abraar Ibrahim Bakhtiyar Ahmed">
-<meta name="theme-color" content="#0A0C10">
-<link rel="canonical" href="https://abraar.me/">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="assets/favicon.svg">
+<meta name="theme-color" content="#F2ECE1">
 
 <meta property="og:type" content="profile">
-<meta property="og:title" content="Abraar Ibrahim Bakhtiyar Ahmed — AIBA">
-<meta property="og:description" content="Data Science &amp; AI at IIT Guwahati. Founder of WatchMeGuru. Penetration testing and bug bounty.">
+<meta property="og:title" content="Abraar Ibrahim Bakhtiyar Ahmed — field notes">
+<meta property="og:description" content="Nineteen, from Assam. Data Science &amp; AI at IIT Guwahati. Founder of WatchMeGuru.">
 <meta property="og:url" content="https://abraar.me/">
-<meta name="twitter:card" content="summary_large_image">
 
-<link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://abraar.me/">
 
-<!-- runs before first paint: entrance animations only exist if JS does.
-     without this, a JS-off visitor would get opacity:0 content. -->
-<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
 
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person",
-"name":"Abraar Ibrahim Bakhtiyar Ahmed","alternateName":"AIBA","url":"https://abraar.me/",
-"jobTitle":"Founder, WatchMeGuru","address":{"@type":"PostalAddress","addressRegion":"Assam","addressCountry":"IN"},
-"alumniOf":[{"@type":"CollegeOrUniversity","name":"Indian Institute of Technology, Guwahati"},{"@type":"School","name":"Sainik School Goalpara"}],
-"knowsAbout":["Penetration Testing","Bug Bounty","Data Science","Artificial Intelligence","LLM Engineering"],
-"sameAs":["https://www.linkedin.com/in/abraar-ibrahim-bakhtiyar-ahmed-257a541b1/","https://github.com/retard-sonn"]}
-</script>
+<link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-
 <body>
-<a class="skip-link" href="#scope">Skip to facts</a>
 
-<main id="doc">
+<a class="skip" href="#one">Skip to the first chapter</a>
 
-<!-- ══════════════════ CLEARANCE 0 — MANIFEST ══════════════════ -->
-<section class="zone" id="manifest" data-zone="0" data-accent="steel" aria-labelledby="manifest-h">
-  <div class="wrap">
-    <p class="eyebrow" data-i="0"><span class="dot"></span>CLEARANCE 0 &middot; OBSERVER</p>
+<!-- ══ MASTHEAD ══════════════════════════════════════════════════════════ -->
+<header class="masthead">
 
-    <h1 class="display display--name" id="manifest-h" data-i="1">Abraar Ibrahim<br>Bakhtiyar Ahmed</h1>
-
-    <p class="alias" data-i="2"><span class="mono-label">ALIAS</span> AIBA</p>
-
-    <p class="lede" data-i="3">
-      Assam, India. I read Data Science &amp; Artificial Intelligence at IIT Guwahati,
-      I founded <strong>WatchMeGuru</strong> and built its AI backend, and I study
-      penetration testing and bug bounty hunting on my own clock.
-      Nothing on this page is hidden or gated &mdash; the rows below are the whole site.
-    </p>
-
-    <!-- the site index IS the hero. every row is a real anchor. -->
-    <nav class="index" aria-label="Site index" data-i="4">
-      <p class="index__head"><span>PATH</span><span>WHAT</span><span>WHEN</span></p>
-      <a class="index__row" href="#log">      <span class="p">/log</span>      <span class="w">Origin &middot; Assam &middot; where the wire went</span> <span class="t">&mdash;</span></a>
-      <a class="index__row" href="#drill">    <span class="p">/drill</span>    <span class="w">Sainik School Goalpara</span>                <span class="t">&mdash;</span></a>
-      <a class="index__row" href="#study">    <span class="p">/study</span>    <span class="w">IIT Guwahati &middot; BSc (Hons) DS&amp;AI</span>  <span class="t">in progress</span></a>
-      <a class="index__row" href="#scope">    <span class="p">/scope</span>    <span class="w">Pentesting &middot; bug bounty &middot; credentials</span> <span class="t">&mdash;</span></a>
-      <a class="index__row" href="#build">    <span class="p">/build</span>    <span class="w">WatchMeGuru &middot; founder, AI backend</span>   <span class="t">2026-05 &rarr;</span></a>
-      <a class="index__row" href="#handover"> <span class="p">/handover</span> <span class="w">Contact &middot; links</span>                      <span class="t">open</span></a>
-    </nav>
-
-    <!-- verifiable outbound links, in the first viewport, static HTML -->
-    <p class="proof" data-i="5">
-      <a class="chip" href="https://watchmeguru-frontend.vercel.app" rel="noopener" target="_blank"><i class="ic" data-ic="vercel"></i>WatchMeGuru &mdash; live<span class="ext">&#8599;</span></a>
-      <a class="chip" href="https://www.linkedin.com/in/abraar-ibrahim-bakhtiyar-ahmed-257a541b1/" rel="noopener" target="_blank"><i class="ic" data-ic="linkedin"></i>LinkedIn<span class="ext">&#8599;</span></a>
-      <a class="chip" href="https://github.com/retard-sonn" rel="noopener me" target="_blank" aria-label="GitHub profile"><i class="ic" data-ic="github"></i>GitHub<span class="ext">&#8599;</span></a>
-      <a class="chip" href="mailto:abraar@watchmeguru.in"><i class="ic" data-ic="mail"></i>Email</a>
-    </p>
-
-    <!-- supporting detail. age appears exactly once on the site, as a data value. -->
-    <dl class="facts" data-i="6">
-      <div class="fact"><dt>NAME</dt><dd>Abraar Ibrahim Bakhtiyar Ahmed</dd></div>
-      <div class="fact"><dt>ALIAS</dt><dd>AIBA</dd></div>
-      <div class="fact"><dt>AGE</dt><dd>19</dd></div>
-      <div class="fact"><dt>BASED</dt><dd>Assam, India</dd></div>
-      <div class="fact"><dt>READING</dt><dd>BSc (Hons) Data Science &amp; AI &middot; IIT Guwahati</dd></div>
-      <div class="fact"><dt>BUILDING</dt><dd>WatchMeGuru &mdash; founder, AI backend</dd></div>
-      <div class="fact"><dt>FOCUS</dt><dd>Pentesting &middot; bug bounty &middot; applied LLMs</dd></div>
-    </dl>
+  <div class="masthead__rule" aria-hidden="true">
+    <span></span><span></span><span></span>
   </div>
-</section>
 
-<!-- ══════════════════ CLEARANCE 1 — LOG ══════════════════ -->
-<section class="zone" id="log" data-zone="1" data-accent="signal" aria-labelledby="log-h">
-  <div class="wrap">
-    <p class="eyebrow" data-i="0"><span class="dot"></span>/log &middot; RECORD &middot; CLEARANCE 1</p>
-    <h2 class="display" id="log-h" data-i="1">Where the<br>wire went</h2>
+  <p class="masthead__kicker">Field notes &middot; Guwahati, Assam &middot; nineteen years in</p>
 
-    <p class="pull" data-i="2">He did not want to use the computer. He wanted to know where the wire went.</p>
+  <h1 class="masthead__name">
+    <span class="n1">Abraar</span>
+    <span class="n2">Ibrahim</span>
+    <span class="n3">Bakhtiyar&nbsp;Ahmed</span>
+  </h1>
 
-    <p class="prose" data-i="3">
-      That is the whole origin story and I am not going to pad it. A machine in a house in Assam,
-      a cable leaving the room, and the specific irritation of not knowing what happened next.
-      Networking came before programming for me &mdash; I wanted the map before I wanted the syntax.
-      Everything below is the same question asked with better tools.
-    </p>
+  <p class="masthead__alias">called <em>AIBA</em></p>
 
-    <!-- EDIT: replace every &mdash; with a real YYYY-MM. Never guess a date here. -->
-    <ol class="ledger" data-i="4">
-      <li><span class="d">&mdash;&mdash;&mdash;&mdash;</span><span class="k">ORIGIN</span>  <span class="v">first machine &middot; assam, india</span></li>
-      <li><span class="d">&mdash;&mdash;&mdash;&mdash;</span><span class="k">ENROLLED</span><span class="v">sainik school goalpara</span></li>
-      <li><span class="d">&mdash;&mdash;&mdash;&mdash;</span><span class="k">PASSED</span>  <span class="v">high school &middot; sainik school goalpara</span></li>
-      <li><span class="d">&mdash;&mdash;&mdash;&mdash;</span><span class="k">EARNED</span>  <span class="v">google cybersecurity professional certificate</span></li>
-      <li><span class="d">&mdash;&mdash;&mdash;&mdash;</span><span class="k">BEGAN</span>   <span class="v">pentesting &amp; bug bounty study</span></li>
-      <li><span class="d">&mdash;&mdash;&mdash;&mdash;</span><span class="k">ADMITTED</span><span class="v">iit guwahati &middot; bsc (hons) ds &amp; ai</span></li>
-      <li><span class="d">2026-05</span>              <span class="k">FOUNDED</span> <span class="v">watchmeguru &middot; first commit pushed</span></li>
-    </ol>
-    <p class="foot-note" data-i="5">[~] Dashes are dates I have not filled in yet, not dates I am hiding. A guessed date is a lie with a timestamp.</p>
-  </div>
-</section>
+  <p class="masthead__line">
+    I grew up wanting to know where the wire went. I still do &mdash; I just
+    have better tools now, and someone finally pays me in course credit for it.
+  </p>
 
-<!-- ══════════════════ CLEARANCE 2 — DRILL ══════════════════ -->
-<section class="zone zone--short" id="drill" data-zone="2" data-accent="brass" aria-labelledby="drill-h">
-  <div class="wrap">
-    <p class="eyebrow" data-i="0"><span class="dot"></span>/drill &middot; THE LINE &middot; CLEARANCE 2</p>
-    <h2 class="display" id="drill-h" data-i="1">The line</h2>
+  <!-- the Brahmaputra braids across Assam the way a network diagram braids
+       across a whiteboard. same drawing, different draughtsman. -->
+  <figure class="braid">
+    <svg viewBox="0 0 1200 260" preserveAspectRatio="none" role="img"
+         aria-label="A braided river drawn as a network diagram: channels split apart and rejoin.">
+      <g class="braid__bed">
+        <path d="M0 130 C120 130 160 70 300 70 C440 70 480 130 600 130 C720 130 760 60 900 60 C1040 60 1080 130 1200 130"/>
+        <path d="M0 130 C120 130 160 190 300 190 C440 190 480 130 600 130 C720 130 760 200 900 200 C1040 200 1080 130 1200 130"/>
+        <path d="M0 130 C140 130 180 112 320 108 C460 104 520 150 660 152 C800 154 860 110 1000 108 C1100 106 1140 130 1200 130"/>
+        <path d="M300 70 C400 82 420 150 560 168 C700 186 780 218 900 200"/>
+        <path d="M300 190 C400 178 430 110 560 96 C690 82 780 48 900 60"/>
+      </g>
+      <g class="braid__flow">
+        <path d="M0 130 C120 130 160 70 300 70 C440 70 480 130 600 130 C720 130 760 60 900 60 C1040 60 1080 130 1200 130"/>
+        <path d="M0 130 C120 130 160 190 300 190 C440 190 480 130 600 130 C720 130 760 200 900 200 C1040 200 1080 130 1200 130"/>
+        <path d="M300 190 C400 178 430 110 560 96 C690 82 780 48 900 60"/>
+      </g>
+      <g class="braid__nodes">
+        <circle cx="300" cy="70" r="5"/><circle cx="300" cy="190" r="5"/>
+        <circle cx="600" cy="130" r="6"/>
+        <circle cx="900" cy="60" r="5"/><circle cx="900" cy="200" r="5"/>
+      </g>
+    </svg>
+    <figcaption>
+      The Brahmaputra, schematically. It splits, wanders, and arrives anyway.
+    </figcaption>
+  </figure>
 
-    <p class="prose" data-i="2">
-      Six years at Sainik School Goalpara. Reveille at a fixed hour, uniform inspection,
-      a schedule written by somebody else and enforced whether or not I agreed with it.
-      I am not going to dress that up as character-building &mdash; it was simply the environment.
-      What it left behind is a low tolerance for my own excuses, which is the single most
-      useful thing I took out of the place.
-    </p>
+</header>
 
-    <div class="hold" data-i="3">
-      <button class="hold__btn" id="holdBtn" type="button" aria-pressed="false"
-              aria-describedby="holdOut">
-        <span class="hold__fill" aria-hidden="true"></span>
-        <span class="hold__label">HOLD TO STAND FAST</span>
-      </button>
-      <p class="hold__alt">
-        <button class="linkbtn" id="holdSkip" type="button">[ can&rsquo;t hold? click here &mdash; clearance is granted either way ]</button>
+
+<main>
+
+<!-- ══ ONE ═══════════════════════════════════════════════════════════════ -->
+<section class="ch" id="one">
+  <div class="ch__inner">
+
+    <p class="ch__num"><span>Chapter</span> One</p>
+    <h2 class="ch__title">Where the wire went</h2>
+
+    <div class="ch__body">
+      <p class="lede">
+        Other children asked what the computer could do. I wanted to know what
+        was on the other side of the cable, and who was allowed to decide.
       </p>
-      <p class="hold__out mono" id="holdOut" role="status" aria-live="polite">[&nbsp;] awaiting.</p>
-      <p class="hold__win" id="holdWin" hidden>You held for three seconds.<br>Sainik School Goalpara held me for six years.</p>
+      <p>
+        That question never really closed. A packet leaves this machine and
+        crosses maybe fifteen strangers' hardware before it arrives, and every
+        one of those hops is a place where somebody made a decision about
+        trust. Most of my education since has been an argument with those
+        decisions.
+      </p>
     </div>
+
+    <!-- a traceroute, drawn as the diagram a curious kid would draw -->
+    <figure class="plate plate--trace">
+      <svg viewBox="0 0 760 190" role="img"
+           aria-label="A traceroute diagram: a packet leaving a home machine, crossing a local router, an internet service provider, an exchange and a data centre, before arriving at a host.">
+        <g class="trace__wire">
+          <path d="M46 132 H186 M186 132 V96 H326 M326 96 V132 H466 M466 132 V78 H606 M606 78 V132 H714"/>
+        </g>
+        <g class="trace__pulse">
+          <path d="M46 132 H186 M186 132 V96 H326 M326 96 V132 H466 M466 132 V78 H606 M606 78 V132 H714"/>
+        </g>
+        <g class="trace__hops">
+          <g transform="translate(46 132)"><circle r="9"/><text y="30">this desk</text></g>
+          <g transform="translate(186 96)"><circle r="7"/><text y="-18">the router</text></g>
+          <g transform="translate(326 132)"><circle r="7"/><text y="30">the ISP</text></g>
+          <g transform="translate(466 78)"><circle r="7"/><text y="-18">an exchange</text></g>
+          <g transform="translate(606 132)"><circle r="7"/><text y="30">a data centre</text></g>
+          <g transform="translate(714 132)" class="is-end"><circle r="9"/><text y="-20">somebody</text></g>
+        </g>
+      </svg>
+      <figcaption>Fifteen strangers, give or take, and every one of them trusted by default.</figcaption>
+    </figure>
+
   </div>
 </section>
 
-<!-- ══════════════════ CLEARANCE 3 — STUDY ══════════════════ -->
-<section class="zone" id="study" data-zone="3" data-accent="bone" aria-labelledby="study-h">
-  <div class="wrap">
-    <p class="eyebrow" data-i="0"><span class="dot"></span>/study &middot; IN PROGRESS &middot; CLEARANCE 3</p>
-    <h2 class="display" id="study-h" data-i="1">Running,<br>not finished</h2>
 
-    <p class="prose" data-i="2">
-      I read BSc (Hons) Data Science &amp; Artificial Intelligence at the Indian Institute of
-      Technology, Guwahati. The degree is not done, so I am not going to round it up to one.
-      What I have is coursework and the habit of actually finishing problem sets &mdash; linear
-      algebra, probability and statistics, programming, data structures, and the machine
-      learning track that made the rest of this page possible.
-    </p>
+<!-- ══ TWO ═══════════════════════════════════════════════════════════════ -->
+<section class="ch ch--alt" id="two">
+  <div class="ch__inner ch__inner--split">
 
-    <div class="meter" data-i="3" role="img" aria-label="Degree in progress, deliberately incomplete">
-      <div class="meter__track"><div class="meter__fill" id="studyMeter"></div></div>
-      <p class="meter__cap mono">[~] Status: RUNNING &mdash; not complete. this is intentional, not a typo.</p>
+    <div class="ch__col">
+      <p class="ch__num"><span>Chapter</span> Two</p>
+      <h2 class="ch__title">Six years, one uniform</h2>
+
+      <div class="ch__body">
+        <p class="lede">
+          Sainik School Goalpara had my entire adolescence on a timetable, and
+          I have never once been grateful for that in the moment.
+        </p>
+        <p>
+          Reveille before the light. Inspection. Prep. Lights out whether or not
+          you were finished. You do not get to negotiate with a bell, and after
+          six years the bell stops being outside you.
+        </p>
+        <p>
+          It is the least glamorous thing on this page and easily the most
+          useful. Nearly everything I have shipped since was built in the hours
+          nobody was watching &mdash; which is, I suppose, why I ended up
+          building software about exactly that.
+        </p>
+      </div>
     </div>
 
-    <!-- languages first, as languages. every one of these is used somewhere
-         else on this page — nothing is listed here that isn't shipped below. -->
-    <h3 class="sub" data-i="4">Languages <span class="sub__note">/ what I actually write in</span></h3>
-    <ul class="grid grid--lang" data-i="5">
-      <li><i class="ic" data-ic="python"></i><span>Python</span></li>
-      <li><i class="ic" data-ic="typescript"></i><span>TypeScript</span></li>
-      <li><i class="ic" data-ic="javascript"></i><span>JavaScript</span></li>
-      <li><i class="ic" data-ic="c"></i><span>C</span></li>
-      <li><i class="ic" data-ic="cplusplus"></i><span>C++</span></li>
-      <li><i class="ic" data-ic="postgresql"></i><span>SQL</span></li>
-      <li><i class="ic" data-ic="gnubash"></i><span>Bash</span></li>
-    </ul>
+    <figure class="plate plate--dial">
+      <svg viewBox="0 0 260 260" role="img"
+           aria-label="A twenty-four hour clock face with the school day marked out in arcs: reveille and physical training before dawn, class through the morning, prep in the evening, and lights out at night.">
+        <circle class="dial__face" cx="130" cy="130" r="98"/>
+        <g class="dial__ticks">
+          <line x1="130" y1="24" x2="130" y2="38"/>
+          <line x1="236" y1="130" x2="222" y2="130"/>
+          <line x1="130" y1="236" x2="130" y2="222"/>
+          <line x1="24" y1="130" x2="38" y2="130"/>
+        </g>
+        <g class="dial__arcs">
+          <circle class="a1" cx="130" cy="130" r="98"/>
+          <circle class="a2" cx="130" cy="130" r="98"/>
+          <circle class="a3" cx="130" cy="130" r="98"/>
+          <circle class="a4" cx="130" cy="130" r="98"/>
+        </g>
+        <text class="dial__hub" x="130" y="124">05:00</text>
+        <text class="dial__sub" x="130" y="146">reveille</text>
+      </svg>
+      <figcaption>
+        <span><i class="sw sw--1"></i>Reveille &amp; PT</span>
+        <span><i class="sw sw--2"></i>Class</span>
+        <span><i class="sw sw--3"></i>Prep</span>
+        <span><i class="sw sw--4"></i>Lights out</span>
+      </figcaption>
+    </figure>
 
-    <h3 class="sub" data-i="6">Coursework <span class="sub__note">/ the stack it is taught on</span></h3>
-    <ul class="grid grid--course" data-i="7">
-      <li><i class="ic" data-ic="numpy"></i><span>NumPy</span></li>
-      <li><i class="ic" data-ic="pandas"></i><span>pandas</span></li>
-      <li><i class="ic" data-ic="pytorch"></i><span>PyTorch</span></li>
-      <li><i class="ic" data-ic="jupyter"></i><span>Jupyter</span></li>
-    </ul>
   </div>
 </section>
 
-<!-- ══════════════════ CLEARANCE 4 — SCOPE (LIGHT INVERSION) ══════════════════ -->
-<section class="zone zone--light" id="scope" data-zone="4" data-accent="ember" aria-labelledby="scope-h">
-  <div class="wrap">
-    <p class="eyebrow" data-i="0"><span class="dot"></span>/scope &middot; CLEARANCE 4</p>
-    <h2 class="display display--huge" id="scope-h" data-i="1">Scope.</h2>
-    <hr class="rule" data-i="2">
 
-    <div class="roe" data-i="3">
-      <div><p class="roe__k mono">SCOPE</p><p class="roe__v">Authorized targets only. Written permission, defined boundaries, a report at the end.</p></div>
-      <div><p class="roe__k mono">OUT OF SCOPE</p><p class="roe__v">Everything else. There is no interesting version of this rule that I get to bend.</p></div>
+<!-- ══ THREE ═════════════════════════════════════════════════════════════ -->
+<section class="ch" id="three">
+  <div class="ch__inner ch__inner--split ch__inner--flip">
+
+    <div class="ch__col">
+      <p class="ch__num"><span>Chapter</span> Three</p>
+      <h2 class="ch__title">The curve I'm on</h2>
+
+      <div class="ch__body">
+        <p class="lede">
+          I read Data Science &amp; Artificial Intelligence at the Indian
+          Institute of Technology, Guwahati. BSc, Honours. Still in progress
+          &mdash; I am not going to pretend otherwise.
+        </p>
+        <p>
+          The honest version of a degree in this subject is that you spend the
+          first stretch learning that almost everything interesting is an
+          optimisation problem wearing a costume, and the rest learning how
+          badly it goes when your data disagrees with your assumptions.
+        </p>
+        <p>
+          Guwahati is forty minutes from where I grew up. I did not go far.
+          I did go deep.
+        </p>
+      </div>
     </div>
 
-    <p class="prose" data-i="4">
-      Penetration testing and bug bounty hunting are the niche I chose. I hunt the slow way:
-      read the program brief, map the surface, stay inside the lines I was given, and write the
-      finding up so somebody else can reproduce it without me in the room. The report is the
-      deliverable &mdash; the shell is just the evidence.
-    </p>
+    <figure class="plate plate--curve">
+      <svg viewBox="0 0 380 250" role="img"
+           aria-label="A training loss curve descending steeply and then flattening, annotated: it has not converged yet.">
+        <g class="curve__axes">
+          <line x1="46" y1="24" x2="46" y2="204"/>
+          <line x1="46" y1="204" x2="352" y2="204"/>
+        </g>
+        <g class="curve__grid">
+          <line x1="46" y1="64" x2="352" y2="64"/>
+          <line x1="46" y1="104" x2="352" y2="104"/>
+          <line x1="46" y1="144" x2="352" y2="144"/>
+        </g>
+        <path class="curve__line"
+              d="M52 40 C86 148 104 168 140 176 C176 184 190 154 214 158 C238 162 246 184 286 186 C318 187 332 180 348 178"/>
+        <circle class="curve__now" cx="348" cy="178" r="6"/>
+        <text class="curve__ylab" x="30" y="120">loss</text>
+        <text class="curve__xlab" x="199" y="230">epochs (years)</text>
+        <text class="curve__note" x="344" y="158">you are here</text>
+      </svg>
+      <figcaption>Descending. Not converged. That is the correct place to be at nineteen.</figcaption>
+    </figure>
 
-    <!-- ═══ EDIT ME ═══════════════════════════════════════════════════════════
-         CREDENTIALS. Delete any line you do not currently hold before you
-         publish. Only the Google certificate carries a public verification
-         link; add a `href` to any other row once you have a credential URL.
-         ══════════════════════════════════════════════════════════════════════ -->
-    <h3 class="sub" data-i="5">Credentials</h3>
-    <ul class="certs" data-i="6">
-      <li class="cert cert--attested">
-        <i class="ic ic--color" data-ic="google"></i>
-        <span class="cert__n">Google Cybersecurity Professional Certificate</span>
-        <a class="cert__v mono" href="https://www.coursera.org/professional-certificates/google-cybersecurity" rel="noopener" target="_blank">VERIFY &#8599;</a>
-      </li>
-      <li class="cert"><i class="ic" data-ic="comptia"></i><span class="cert__n">CompTIA Security+</span></li>
-      <li class="cert"><i class="ic" data-ic="comptia"></i><span class="cert__n">CompTIA PenTest+</span></li>
-      <li class="cert"><i class="ic" data-ic="offsec"></i><span class="cert__n">OffSec Certified Professional (OSCP)</span></li>
-      <li class="cert"><i class="ic" data-ic="hackthebox"></i><span class="cert__n">HTB Certified Penetration Testing Specialist</span></li>
-      <li class="cert"><i class="ic" data-ic="tryhackme"></i><span class="cert__n">TryHackMe Jr Penetration Tester</span></li>
-    </ul>
-
-    <h3 class="sub" data-i="7">Arsenal <span class="sub__note">/ tools studied</span></h3>
-    <ul class="grid grid--tools" data-i="8">
-      <li><i class="ic" data-ic="kalilinux"></i><span>Kali Linux</span></li>
-      <li><i class="ic" data-ic="burpsuite"></i><span>Burp Suite</span></li>
-      <li><i class="ic" data-ic="wireshark"></i><span>Wireshark</span></li>
-      <li><i class="ic" data-ic="metasploit"></i><span>Metasploit</span></li>
-      <li><i class="ic" data-ic="nmap"></i><span>Nmap</span></li>
-      <li><i class="ic" data-ic="ghidra"></i><span>Ghidra</span></li>
-      <li><i class="ic" data-ic="shodan"></i><span>Shodan</span></li>
-      <li><i class="ic" data-ic="owasp"></i><span>OWASP</span></li>
-      <li><i class="ic" data-ic="portswigger"></i><span>PortSwigger</span></li>
-      <li><i class="ic" data-ic="linux"></i><span>Linux</span></li>
-      <li><i class="ic" data-ic="gnubash"></i><span>Bash</span></li>
-      <li><i class="ic" data-ic="python"></i><span>Python</span></li>
-    </ul>
-
-    <h3 class="sub" data-i="9">Platforms</h3>
-    <ul class="grid grid--tools" data-i="10">
-      <li><i class="ic" data-ic="hackerone"></i><span>HackerOne</span></li>
-      <li><i class="ic" data-ic="bugcrowd"></i><span>Bugcrowd</span></li>
-      <li><i class="ic" data-ic="tryhackme"></i><span>TryHackMe</span></li>
-      <li><i class="ic" data-ic="hackthebox"></i><span>Hack The Box</span></li>
-    </ul>
-
-    <p class="attest mono" data-i="11">
-      [+] Tools listed are tools studied, not engagements performed. Credentials listed are
-      credentials held; where a public verification link exists, it is linked. No CVEs, bounty
-      totals or client names are claimed anywhere on this page &mdash; if you do not see a number, it is
-      because I will not invent one.
-    </p>
   </div>
 </section>
 
-<!-- ══════════════════ CLEARANCE 5 — BUILD ══════════════════ -->
-<section class="zone" id="build" data-zone="5" data-accent="indigo" aria-labelledby="build-h">
-  <div class="wrap">
-    <p class="eyebrow" data-i="0"><span class="dot"></span>/build &middot; WATCHMEGURU &middot; CLEARANCE 5</p>
-    <h2 class="display" id="build-h" data-i="1">Study alone.<br>Fail alone.</h2>
 
-    <p class="prose" data-i="2">
-      I built the AI backend of WatchMeGuru &mdash; an accountability mentor that opens the
-      conversation instead of waiting to be opened, then asks you to prove the work. You
-      photograph the page you say you finished, Gemini Vision reads it, and it comes back
-      <em>verified</em>, <em>partial</em>, or <em>unrelated</em>. The streak only moves on
-      the first one.
-    </p>
+<!-- ══ FOUR — the interactive centrepiece ════════════════════════════════ -->
+<section class="ch ch--feature" id="four">
+  <div class="ch__inner">
 
-    <div class="unit" data-i="3">
-      <p class="unit__row mono"><span class="unit__k">service</span><span class="unit__v">watchmeguru.ai-backend</span></p>
-      <p class="unit__row mono"><span class="unit__k">state</span><span class="unit__v"><span class="ok">&#9679;</span> active (running)</span></p>
-      <p class="unit__row mono"><span class="unit__k">founded</span><span class="unit__v">2026-05</span></p>
-      <p class="unit__row mono"><span class="unit__k">role</span><span class="unit__v">founder &middot; AI backend</span></p>
-      <p class="unit__row mono"><span class="unit__k">stage</span><span class="unit__v">early &mdash; live build, no public user numbers claimed</span></p>
-      <p class="unit__row mono"><span class="unit__k">for</span><span class="unit__v">JEE &middot; NEET &middot; UPSC &middot; NDA &middot; CBSE</span></p>
+    <p class="ch__num"><span>Chapter</span> Four</p>
+    <h2 class="ch__title">A tree that only grows if you told the truth</h2>
+
+    <div class="ch__body ch__body--wide">
+      <p class="lede">
+        <strong>WatchMeGuru</strong> is mine. It is a student accountability
+        platform for the people I grew up beside &mdash; JEE, NEET, UPSC, NDA,
+        CBSE aspirants, all of them promising themselves things at eleven at
+        night. I built its AI backend.
+      </p>
+      <p>
+        Every accountability app I had ever used ran on the honour system,
+        which is a polite way of saying it ran on nothing. So this one does not
+        take your word for it. You claim the work, then you photograph the
+        work. A vision model reads the photograph and returns one of three
+        verdicts. Your streak moves only on <em>verified</em>.
+      </p>
+      <p class="cue">
+        Easier to show you. Go on &mdash; try to grow it.
+      </p>
     </div>
 
-    <h3 class="sub" data-i="4">Services</h3>
-    <ul class="stack" data-i="5">
-      <li><i class="ic" data-ic="langchain"></i><span class="s__n">LangGraph</span><span class="s__p mono">agent orchestration &middot; routing</span></li>
-      <li><i class="ic" data-ic="googlegemini"></i><span class="s__n">Gemini 2.0 / 2.5 Flash</span><span class="s__p mono">planning &middot; vision proof-of-work</span></li>
-      <li><i class="ic" data-ic="groq"></i><span class="s__n">Groq</span><span class="s__p mono">Llama 3.3 70B Versatile inference</span></li>
-      <li><i class="ic" data-ic="meta"></i><span class="s__n">Llama 3.3 70B</span><span class="s__p mono">conversational mentor turns</span></li>
-      <li><i class="ic" data-ic="python"></i><span class="s__n">Instructor</span><span class="s__p mono">structured LLM output &middot; schema-bound</span></li>
-      <li><i class="ic" data-ic="fastapi"></i><span class="s__n">FastAPI</span><span class="s__p mono">async API surface</span></li>
-      <li><i class="ic" data-ic="supabase"></i><span class="s__n">Supabase</span><span class="s__p mono">Postgres &middot; auth-backed rows</span></li>
-      <li><i class="ic" data-ic="postgresql"></i><span class="s__n">PostgreSQL</span><span class="s__p mono">sessions &middot; streaks &middot; XP ledger</span></li>
-      <li><i class="ic" data-ic="clerk"></i><span class="s__n">Clerk</span><span class="s__p mono">identity &middot; JWT middleware</span></li>
-      <li><i class="ic" data-ic="twilio"></i><span class="s__n">Twilio</span><span class="s__p mono">WhatsApp mentor channel</span></li>
-      <li><i class="ic" data-ic="telegram"></i><span class="s__n">Telegram</span><span class="s__p mono">bot channel</span></li>
-      <li><i class="ic" data-ic="discord"></i><span class="s__n">Discord</span><span class="s__p mono">webhook channel</span></li>
-      <li><i class="ic" data-ic="nextdotjs"></i><span class="s__n">Next.js 16</span><span class="s__p mono">app router &middot; React 19</span></li>
-      <li><i class="ic" data-ic="typescript"></i><span class="s__n">TypeScript</span><span class="s__p mono">front-end contract</span></li>
-      <li><i class="ic" data-ic="tailwindcss"></i><span class="s__n">Tailwind v4</span><span class="s__p mono">design system</span></li>
-      <li><i class="ic" data-ic="vercel"></i><span class="s__n">Vercel</span><span class="s__p mono">deploy &middot; edge</span></li>
-    </ul>
+    <!-- ── the game ───────────────────────────────────────────────────── -->
+    <div class="grove" id="grove">
 
-    <!-- THE VERIFIER — replay of the real endpoint contract -->
-    <h3 class="sub" data-i="6">The verifier <span class="sub__note">/ pick a proof</span></h3>
-    <div class="verifier" data-i="7" id="verifier" data-step="0">
-      <div class="vf__samples" role="radiogroup" aria-label="Sample proof to verify">
-        <button class="vf__s" type="button" role="radio" aria-checked="true"  data-sample="verified">A filled notebook page</button>
-        <button class="vf__s" type="button" role="radio" aria-checked="false" data-sample="partial">A half-written page</button>
-        <button class="vf__s" type="button" role="radio" aria-checked="false" data-sample="unrelated">A streaming app on a laptop</button>
+      <div class="grove__stage">
+        <svg class="tree" id="tree" data-stage="0" viewBox="0 0 320 300" role="img"
+             aria-hidden="true">
+
+          <!-- what you are growing toward. faint, always there, so an empty
+               plot still shows you the shape of the bargain. -->
+          <g class="ghost">
+            <path d="M160 258 V96"/>
+            <path d="M60 258 V196"/>
+            <path d="M260 258 V202"/>
+            <circle cx="160" cy="92" r="40"/><circle cx="116" cy="112" r="27"/>
+            <circle cx="204" cy="110" r="27"/><circle cx="160" cy="64" r="25"/>
+            <circle cx="60" cy="186" r="26"/><circle cx="260" cy="192" r="23"/>
+          </g>
+
+          <line class="tree__ground" x1="28" y1="258" x2="292" y2="258"/>
+
+          <g data-s="0" class="lyr">
+            <ellipse class="seed" cx="160" cy="270" rx="10" ry="7"/>
+          </g>
+
+          <g data-s="1" class="lyr">
+            <path class="stem" d="M160 258 V214"/>
+            <path class="leaf" d="M160 224 C140 222 131 211 133 200 C149 200 159 211 160 224Z"/>
+            <path class="leaf" d="M160 231 C180 229 189 218 187 207 C171 207 161 218 160 231Z"/>
+          </g>
+
+          <g data-s="2" class="lyr">
+            <path class="trunk" d="M160 258 V132"/>
+            <path class="bough" d="M160 190 C134 180 120 162 114 140"/>
+            <path class="bough" d="M160 178 C188 168 204 150 210 128"/>
+          </g>
+
+          <g data-s="3" class="lyr">
+            <path class="bough" d="M114 140 C106 130 102 120 103 110"/>
+            <path class="bough" d="M210 128 C218 118 222 108 221 98"/>
+            <g class="canopy">
+              <circle cx="160" cy="92" r="40"/>
+              <circle cx="116" cy="112" r="27"/>
+              <circle cx="204" cy="110" r="27"/>
+              <circle cx="160" cy="64" r="25"/>
+            </g>
+          </g>
+
+          <g data-s="4" class="lyr">
+            <path class="trunk trunk--sm" d="M60 258 V196"/>
+            <path class="trunk trunk--sm" d="M260 258 V202"/>
+            <g class="canopy canopy--sm">
+              <circle cx="60" cy="186" r="26"/>
+              <circle cx="260" cy="192" r="23"/>
+              <circle cx="92" cy="206" r="15"/>
+              <circle cx="230" cy="210" r="13"/>
+            </g>
+          </g>
+
+          <g data-s="5" class="lyr">
+            <circle class="halo" cx="160" cy="92" r="64"/>
+            <path class="root" d="M160 258 C130 264 108 274 92 288"/>
+            <path class="root" d="M160 258 C190 264 212 274 228 288"/>
+            <path class="root" d="M160 258 V290"/>
+            <g class="fruit">
+              <circle cx="132" cy="80" r="4.5"/><circle cx="186" cy="72" r="4.5"/>
+              <circle cx="168" cy="112" r="4.5"/><circle cx="138" cy="108" r="4.5"/>
+              <circle cx="198" cy="98" r="4.5"/><circle cx="160" cy="46" r="4.5"/>
+            </g>
+          </g>
+        </svg>
+
+        <p class="grove__stagename"><span id="stageName">Seed</span></p>
       </div>
 
-      <ol class="vf__rail" id="vfRail" aria-hidden="true">
-        <li data-s="1"><span class="mono">upload</span></li>
-        <li data-s="2"><span class="mono">langgraph route</span></li>
-        <li data-s="3"><span class="mono">gemini-2.5-flash:vision</span></li>
-        <li data-s="4"><span class="mono">instructor parse</span></li>
-        <li data-s="5"><span class="mono">verdict</span></li>
-        <li data-s="6"><span class="mono">streak write</span></li>
-      </ol>
-      <p class="vf__swipe mono" aria-hidden="true">&larr; swipe &rarr;</p>
+      <div class="grove__panel">
 
-      <pre class="vf__out mono" id="vfOut" role="status" aria-live="polite">&gt; select a proof to replay the call<span class="caret" aria-hidden="true">&#9608;</span></pre>
-      <p class="vf__honest mono">[~] REPLAY &mdash; recorded response shape from the real endpoint. Not a live API call from this page.</p>
+        <dl class="grove__stats">
+          <div><dt>Streak</dt><dd><span id="streak">0</span> <small>days</small></dd></div>
+          <div><dt>Verified</dt><dd><span id="verified">0</span></dd></div>
+          <div><dt>Rejected</dt><dd><span id="rejected">0</span></dd></div>
+        </dl>
+
+        <p class="grove__claim">
+          <label for="claimSel">Today I claim I did</label>
+          <select id="claimSel">
+            <option value="Three hours of organic chemistry">three hours of organic chemistry</option>
+            <option value="A full JEE mock paper">a full JEE mock paper</option>
+            <option value="Forty problems of rotational motion">forty problems of rotational motion</option>
+            <option value="Two chapters of modern history">two chapters of modern history</option>
+          </select>
+        </p>
+
+        <button class="btn" id="proveBtn" type="button">
+          <span class="btn__lens" aria-hidden="true"></span>
+          Photograph the proof
+        </button>
+
+        <p class="grove__verdict" id="verdict" role="status" aria-live="polite">
+          <span class="grove__hint">Nothing submitted yet. The seed stays a seed.</span>
+        </p>
+
+        <p class="grove__reset">
+          <button class="linkbtn" id="resetBtn" type="button">Start over</button>
+        </p>
+      </div>
     </div>
 
-    <h3 class="sub" data-i="8">The ladder <span class="sub__note">/ the product&rsquo;s real progression</span></h3>
-    <p class="prose prose--tight" data-i="9">
-      This site has clearance levels because the product it is describing has them. WatchMeGuru
-      grows a tree as you keep your word &mdash; and that is the only reason a portfolio of mine is
-      allowed to have a progress bar.
-    </p>
-    <ol class="ladder" data-i="10">
-      <li>Seed</li><li>Sprout</li><li>Sapling</li><li>Tree</li><li>Forest</li><li>World Tree</li>
-    </ol>
-
-    <p class="proof" data-i="11">
-      <a class="chip" href="https://watchmeguru-frontend.vercel.app" rel="noopener" target="_blank"><i class="ic" data-ic="vercel"></i>Open WatchMeGuru<span class="ext">&#8599;</span></a>
-    </p>
-  </div>
-</section>
-
-<!-- ══════════════════ CLEARANCE 6 — HANDOVER (LIGHT) ══════════════════ -->
-<section class="zone zone--light" id="handover" data-zone="6" data-accent="ember" aria-labelledby="handover-h">
-  <div class="wrap">
-    <p class="eyebrow" data-i="0"><span class="dot"></span>/handover &middot; CLEARANCE 6</p>
-    <h2 class="display display--huge" id="handover-h" data-i="1">Handover.</h2>
-    <hr class="rule" data-i="2">
-
-    <p class="prose" data-i="3">
-      Available for scoped security work, AI engineering, and internships.
-      The fastest way to reach me is email; the most complete picture is the code.
+    <p class="grove__legend">
+      Six stages, and they are the real ones:
+      <b>Seed &middot; Sprout &middot; Sapling &middot; Tree &middot; Forest &middot; World&nbsp;Tree</b>.
+      In the live product the verdict comes from Gemini reading your actual
+      photograph, so the demo above cheats in exactly one way &mdash; it has no
+      photograph to read, so it guesses. Everything else is the mechanic as
+      shipped, including the part where a bad submission costs you.
     </p>
 
-    <ul class="contact" data-i="4">
-      <li><a href="mailto:abraar@watchmeguru.in"><i class="ic" data-ic="mail"></i><span class="c__n">abraar@watchmeguru.in</span><span class="c__k mono">EMAIL</span></a></li>
-      <li><a href="https://www.linkedin.com/in/abraar-ibrahim-bakhtiyar-ahmed-257a541b1/" rel="noopener" target="_blank"><i class="ic" data-ic="linkedin"></i><span class="c__n">Abraar Ibrahim Bakhtiyar Ahmed</span><span class="c__k mono">LINKEDIN &#8599;</span></a></li>
-      <li><a href="https://github.com/retard-sonn" rel="noopener me" target="_blank" aria-label="GitHub profile"><i class="ic" data-ic="github"></i><span class="c__n">GitHub</span><span class="c__k mono">SOURCE &#8599;</span></a></li>
-      <li><a href="https://watchmeguru-frontend.vercel.app" rel="noopener" target="_blank"><i class="ic" data-ic="vercel"></i><span class="c__n">WatchMeGuru</span><span class="c__k mono">LIVE &#8599;</span></a></li>
-    </ul>
-
-    <h3 class="sub" data-i="5">Clearance record</h3>
-    <div class="record" data-i="6">
-      <ol class="record__list mono" id="recordList">
-        <li class="record__empty">[~] No record yet &mdash; this fills in as you read.</li>
-      </ol>
-      <p class="record__foot mono" id="recordFoot">CLEARANCE &mdash;/6</p>
-      <p>
-        <button class="linkbtn" id="copyRecord" type="button">[ COPY RECORD ]</button>
-        <button class="linkbtn" id="printBtn" type="button">[ PRINT / SAVE AS PDF ]</button>
+    <div class="stack">
+      <h3 class="stack__h">What it is made of</h3>
+      <div class="stack__grid">
+        <div class="stack__grp">
+          <p class="stack__lab">The part that judges you</p>
+          <ul class="chips">
+            <li><i data-ic="langchain"></i>LangGraph</li>
+            <li><i data-ic="googlegemini"></i>Gemini 2.5 Flash</li>
+            <li><i data-ic="groq"></i>Groq</li>
+            <li><i data-ic="meta"></i>Llama 3.3 70B</li>
+            <li><i data-ic="python"></i>Instructor</li>
+          </ul>
+        </div>
+        <div class="stack__grp">
+          <p class="stack__lab">The part that remembers</p>
+          <ul class="chips">
+            <li><i data-ic="fastapi"></i>FastAPI</li>
+            <li><i data-ic="supabase"></i>Supabase</li>
+            <li><i data-ic="postgresql"></i>Postgres</li>
+            <li><i data-ic="clerk"></i>Clerk</li>
+          </ul>
+        </div>
+        <div class="stack__grp">
+          <p class="stack__lab">The part you touch</p>
+          <ul class="chips">
+            <li><i data-ic="nextdotjs"></i>Next.js 16</li>
+            <li><i data-ic="typescript"></i>TypeScript</li>
+            <li><i data-ic="tailwindcss"></i>Tailwind v4</li>
+            <li><i data-ic="vercel"></i>Vercel</li>
+          </ul>
+        </div>
+        <div class="stack__grp">
+          <p class="stack__lab">The part that nags you</p>
+          <ul class="chips">
+            <li><i data-ic="twilio"></i>WhatsApp</li>
+            <li><i data-ic="telegram"></i>Telegram</li>
+            <li><i data-ic="discord"></i>Discord</li>
+          </ul>
+        </div>
+      </div>
+      <p class="stack__foot">
+        Founded May 2026. Live, early, and small enough that I still read every
+        support message myself.
+        <a class="ext" href="https://watchmeguru.in" rel="noopener">watchmeguru.in</a>
       </p>
     </div>
 
-    <p class="attest mono" data-i="7">
-      The record above is yours, not a trophy &mdash; it is just a note of what you were shown and when.
-      It never leaves your browser.
-    </p>
+  </div>
+</section>
+
+
+<!-- ══ FIVE ══════════════════════════════════════════════════════════════ -->
+<section class="ch ch--alt" id="five">
+  <div class="ch__inner">
+
+    <p class="ch__num"><span>Chapter</span> Five</p>
+    <h2 class="ch__title">Breaking things carefully</h2>
+
+    <div class="ch__body ch__body--wide">
+      <p class="lede">
+        My niche is penetration testing and bug bounty. I want to be precise
+        about where I actually am with it, because this is a field where
+        people inflate and get found out in one interview.
+      </p>
+      <p>
+        I hold the <strong>Google Cybersecurity Professional Certificate</strong>.
+        That is the only certificate I hold, and I am not going to list a
+        wishlist next to it and hope you do not check. What I have besides that
+        is a lab, a lot of hours, and the specific stubbornness of somebody who
+        grew up asking where the wire went.
+      </p>
+      <p>
+        The reason it suits me is the same reason the networking question never
+        closed. Security is not really about tools. It is about noticing the
+        assumption everybody stopped checking.
+      </p>
+    </div>
+
+    <div class="creds">
+      <div class="creds__have">
+        <p class="creds__lab">Held</p>
+        <p class="creds__item">
+          <i data-ic="google"></i>
+          <span><b>Google Cybersecurity Professional Certificate</b><small>Coursera &middot; completed</small></span>
+        </p>
+      </div>
+      <div class="creds__next">
+        <p class="creds__lab">Studying toward &mdash; <em>not</em> held</p>
+        <p class="creds__note">
+          Deliberately unlisted. When one of them is real it will move to the
+          left-hand column and not a day before.
+        </p>
+      </div>
+    </div>
+
+    <h3 class="stack__h">What is open on the other monitor</h3>
+    <div class="stack__grid stack__grid--two">
+      <div class="stack__grp">
+        <p class="stack__lab">Reconnaissance &amp; traffic</p>
+        <ul class="chips">
+          <li><i data-ic="nmap"></i>Nmap</li>
+          <li><i data-ic="wireshark"></i>Wireshark</li>
+          <li><i data-ic="shodan"></i>Shodan</li>
+          <li><i data-ic="kalilinux"></i>Kali</li>
+          <li><i data-ic="gnubash"></i>Bash</li>
+        </ul>
+      </div>
+      <div class="stack__grp">
+        <p class="stack__lab">Web, binaries &amp; exploitation</p>
+        <ul class="chips">
+          <li><i data-ic="burpsuite"></i>Burp Suite</li>
+          <li><i data-ic="portswigger"></i>PortSwigger Academy</li>
+          <li><i data-ic="metasploit"></i>Metasploit</li>
+          <li><i data-ic="ghidra"></i>Ghidra</li>
+          <li><i data-ic="owasp"></i>OWASP</li>
+        </ul>
+      </div>
+      <div class="stack__grp">
+        <p class="stack__lab">Where the practice happens</p>
+        <ul class="chips">
+          <li><i data-ic="hackthebox"></i>Hack The Box</li>
+          <li><i data-ic="tryhackme"></i>TryHackMe</li>
+        </ul>
+      </div>
+      <div class="stack__grp">
+        <p class="stack__lab">Where the reports go</p>
+        <ul class="chips">
+          <li><i data-ic="hackerone"></i>HackerOne</li>
+          <li><i data-ic="bugcrowd"></i>Bugcrowd</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ SIX ═══════════════════════════════════════════════════════════════ -->
+<section class="ch" id="six">
+  <div class="ch__inner">
+
+    <p class="ch__num"><span>Chapter</span> Six</p>
+    <h2 class="ch__title">What I actually write in</h2>
+
+    <div class="ch__body ch__body--wide">
+      <p class="lede">
+        Not a skills bar chart. Nobody is seventy-three percent good at Python
+        and everybody knows it.
+      </p>
+    </div>
+
+    <div class="stack__grid stack__grid--two">
+      <div class="stack__grp">
+        <p class="stack__lab">Daily</p>
+        <ul class="chips">
+          <li><i data-ic="python"></i>Python</li>
+          <li><i data-ic="typescript"></i>TypeScript</li>
+          <li><i data-ic="javascript"></i>JavaScript</li>
+          <li><i data-ic="gnubash"></i>Bash</li>
+          <li><i data-ic="postgresql"></i>SQL</li>
+        </ul>
+      </div>
+      <div class="stack__grp">
+        <p class="stack__lab">When it has to be close to the metal</p>
+        <ul class="chips">
+          <li><i data-ic="c"></i>C</li>
+          <li><i data-ic="cplusplus"></i>C++</li>
+          <li><i data-ic="linux"></i>Linux</li>
+        </ul>
+      </div>
+      <div class="stack__grp">
+        <p class="stack__lab">The coursework stack</p>
+        <ul class="chips">
+          <li><i data-ic="numpy"></i>NumPy</li>
+          <li><i data-ic="pandas"></i>pandas</li>
+          <li><i data-ic="pytorch"></i>PyTorch</li>
+          <li><i data-ic="jupyter"></i>Jupyter</li>
+        </ul>
+      </div>
+      <div class="stack__grp">
+        <p class="stack__lab">Models, in anger</p>
+        <ul class="chips">
+          <li><i data-ic="langchain"></i>LangGraph</li>
+          <li><i data-ic="googlegemini"></i>Gemini</li>
+          <li><i data-ic="groq"></i>Groq</li>
+          <li><i data-ic="meta"></i>Llama</li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 </section>
 
 </main>
 
-<!-- ══════════════════ PERSISTENT RAIL ══════════════════ -->
-<div class="rail" id="rail" role="complementary" aria-label="Clearance status">
-  <span class="rail__lvl mono" id="railLvl">CLEARANCE 0/6 &middot; /</span>
-  <span class="rail__meter" aria-hidden="true"><span class="rail__fill" id="railFill"></span></span>
-  <span class="rail__acts">
-    <button class="rail__btn mono" id="indexBtn" type="button" aria-expanded="false" aria-controls="overlay">[ INDEX ]</button>
-    <button class="rail__btn mono" id="plainBtn" type="button" aria-pressed="false">[ PLAIN ]</button>
-  </span>
-</div>
 
-<!-- ══════════════════ INDEX OVERLAY — the contact guarantee ══════════════════ -->
-<div class="overlay" id="overlay" hidden>
-  <div class="overlay__panel" role="dialog" aria-modal="true" aria-label="Site index">
-    <p class="overlay__head mono">INDEX &middot; abraar.me</p>
-    <div class="overlay__list">
-    <a href="#manifest">/ <span>Manifest &mdash; who and what</span></a>
-    <a href="#log">/log <span>Origin and chronology</span></a>
-    <a href="#drill">/drill <span>Sainik School Goalpara</span></a>
-    <a href="#study">/study <span>IIT Guwahati &middot; DS &amp; AI</span></a>
-    <a href="#scope">/scope <span>Pentesting &middot; bug bounty &middot; credentials</span></a>
-    <a href="#build">/build <span>WatchMeGuru &middot; AI backend</span></a>
-    <a href="#handover">/handover <span>Contact</span></a>
-    <hr class="rule">
-    <a href="mailto:abraar@watchmeguru.in">email <span>abraar@watchmeguru.in</span></a>
-    <a href="https://www.linkedin.com/in/abraar-ibrahim-bakhtiyar-ahmed-257a541b1/" rel="noopener" target="_blank">linkedin <span>profile &#8599;</span></a>
-    <a href="https://github.com/retard-sonn" rel="noopener me" target="_blank">github <span>source &#8599;</span></a>
-    <a href="https://watchmeguru-frontend.vercel.app" rel="noopener" target="_blank">watchmeguru <span>live &#8599;</span></a>
-    </div>
-    <button class="overlay__close mono" id="overlayClose" type="button">[ CLOSE &middot; ESC ]</button>
+<!-- ══ COLOPHON ══════════════════════════════════════════════════════════ -->
+<footer class="colophon" id="contact">
+  <div class="ch__inner">
+
+    <h2 class="colophon__h">Say something</h2>
+    <p class="colophon__sub">
+      I answer email from strangers. It is one of the few good habits the
+      timetable gave me.
+    </p>
+
+    <ul class="colophon__links">
+      <li>
+        <a href="mailto:abraar@watchmeguru.in">
+          <i data-ic="mail"></i><span>abraar@watchmeguru.in</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/abraar-ibrahim-bakhtiyar-ahmed-257a541b1/" rel="noopener">
+          <i data-ic="linkedin"></i><span>LinkedIn</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/retard-sonn" rel="noopener" aria-label="GitHub profile">
+          <i data-ic="github"></i><span>GitHub</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://watchmeguru.in" rel="noopener">
+          <!-- no brand mark exists for his own product, so it gets the sprout
+               from chapter four rather than a borrowed logo -->
+          <svg class="ic ic--sprout" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 22V11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12 13C7.5 13 5 10.5 5 6c4.5 0 7 2.5 7 7Z"/>
+            <path d="M12 15c4.5 0 7-2.5 7-7-4.5 0-7 2.5-7 7Z"/>
+          </svg>
+          <span>WatchMeGuru</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="colophon__rule" aria-hidden="true"><span></span><span></span><span></span></div>
+
+    <p class="colophon__fine">
+      Set in Fraunces and Newsreader. Every diagram on this page is drawn in
+      SVG by hand &mdash; there is not a single image file on this site.
+      Built without a framework, which is either principled or stubborn
+      depending on who is asking.
+    </p>
+    <p class="colophon__fine colophon__fine--last">
+      Abraar Ibrahim Bakhtiyar Ahmed &middot; Assam, India
+    </p>
+
   </div>
-</div>
+</footer>
 
-<script src="assets/js/icons.js" defer></script>
-<script src="assets/js/app.js" defer></script>
+<script src="/assets/js/icons.js"></script>
+<script src="/assets/js/app.js"></script>
 </body>
 </html>
